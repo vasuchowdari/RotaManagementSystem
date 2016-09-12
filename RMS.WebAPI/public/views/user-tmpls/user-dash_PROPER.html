@@ -1,0 +1,245 @@
+﻿<div class="horizontal-spacer"></div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span>Week Starting - {{weekStartDate | date: 'dd/MM/yyyy'}}</span>
+                    <span class="user-dash-header-panel-expander"
+                          data-ng-hide="panelsExpanded">
+                        
+                        <i data-ng-click="toggleAllPanels()"
+                           class="fa fa-plus-square-o"
+                           aria-hidden="true"></i> Expand all panels
+                    </span>
+
+                    <span class="user-dash-header-panel-expander"
+                          data-ng-hide="!panelsExpanded">
+                        
+                        <i data-ng-click="toggleAllPanels()"
+                           class="fa fa-minus-square-o"
+                           aria-hidden="true"></i> Collapse all panels
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <!--<div class="col-md-4">
+                    <div class="col-sm-12 user-dash-data">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        Hours scheduled this week:
+                    </div>
+                    <div class="col-sm-12 user-dash-data hoursScheduled">
+                        {{hoursScheduledThisWeek}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-sm-12 user-dash-data">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        Hours worked this week:
+                    </div>
+                    <div class="col-sm-12 user-dash-data hoursWorked">
+                        {{hoursWorkedThisWeek}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-sm-12 user-dash-data">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        Hours left this week:
+                    </div>
+                    <div class="col-sm-12 user-dash-data hoursRemaining">
+                        {{hoursRemainingThisWeek}}
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i data-ng-click="toggleTimeCorrectionPanel()"
+                       data-ng-hide="!hideTimeCorrectionPanel"
+                       class="fa fa-plus-square-o"
+                       aria-hidden="true"></i>
+                    <i data-ng-click="toggleTimeCorrectionPanel()"
+                       data-ng-hide="hideTimeCorrectionPanel"
+                       class="fa fa-minus-square-o"
+                       aria-hidden="true"></i>
+                    Shifts needing Time Correction
+                    <!--<span class="panel-header-icon">
+                        <span class="badge">{{shiftsForApproval.length}}</span>
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                    </span>-->
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="hideTimeCorrectionPanel">
+                <!--<scrollable-table watch="shiftsForApproval">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th class="table-rms">Shift Start</th>
+                                <th class="table-rms">Shift End</th>
+                                <th class="table-rms">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> In
+                                </th>
+                                <th class="table-rms">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> Out
+                                </th>
+                                <th class="table-rms">Hours Worked</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="shiftProfile in shiftsForApproval" row-id="{{shiftProfile.Id}}">
+                                <td data-ng-click="navToAdjustmentForm(shiftProfile)">{{shiftProfile.StartDateTime | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td data-ng-click="navToAdjustmentForm(shiftProfile)">{{shiftProfile.EndDateTime | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td data-ng-click="navToAdjustmentForm(shiftProfile)">{{shiftProfile.ZktStartDateTime | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td data-ng-click="navToAdjustmentForm(shiftProfile)">{{shiftProfile.ZktEndDateTime | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td data-ng-click="navToAdjustmentForm(shiftProfile)">{{shiftProfile.TimeWorked}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i data-ng-click="togglePendingLeaveRequestPanel()"
+                       data-ng-hide="!hidePendingLeaveRequestPanel"
+                       class="fa fa-plus-square-o"
+                       aria-hidden="true"></i>
+                    <i data-ng-click="togglePendingLeaveRequestPanel()"
+                       data-ng-hide="hidePendingLeaveRequestPanel"
+                       class="fa fa-minus-square-o"
+                       aria-hidden="true"></i>
+                    Pending Leave Requests
+                    <span class="panel-header-icon">
+                        <span class="badge">{{pendingLeaveRequests.length}}</span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="hidePendingLeaveRequestPanel">
+                <scrollable-table watch="pendingLeaveRequests">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th class="table-rms">Leave Type</th>
+                                <th class="table-rms">Start Date</th>
+                                <th class="table-rms">End Date</th>
+                                <th class="table-rms"># of Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="leaveRequest in pendingLeaveRequests" row-id="{{leaveRequest.Id}}">
+                                <td>{{leaveRequest.LeaveTypeName}}</td>
+                                <td>{{leaveRequest.StartDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{leaveRequest.EndDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{leaveRequest.numberOfDays}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i data-ng-click="toggleAssignedShiftsPanel()"
+                       data-ng-hide="!hideAssignedShiftsPanel"
+                       class="fa fa-plus-square-o"
+                       aria-hidden="true"></i>
+                    <i data-ng-click="toggleAssignedShiftsPanel()"
+                       data-ng-hide="hideAssignedShiftsPanel"
+                       class="fa fa-minus-square-o"
+                       aria-hidden="true"></i>
+                    Assigned Shifts
+                    <span class="panel-header-icon">
+                        <span class="badge">{{assignedShifts.length}}</span>
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="hideAssignedShiftsPanel">
+                <scrollable-table watch="assignedShifts">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th class="table-rms">Shift Start</th>
+                                <th class="table-rms">Shift End</th>
+                                <th class="table-rms">Location</th>
+                                <th class="table-rms">Duration (Hrs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="shift in assignedShifts" row-id="{{shift.Id}}">
+                                <td>{{shift.StartDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{shift.EndDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{shift.Location}}</td>
+                                <td>{{shift.hours}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i data-ng-click="toggleApprovedLeaveRequestPanel()"
+                       data-ng-hide="!hideApprovedLeaveRequestPanel"
+                       class="fa fa-plus-square-o"
+                       aria-hidden="true"></i>
+                    <i data-ng-click="toggleApprovedLeaveRequestPanel()"
+                       data-ng-hide="hideApprovedLeaveRequestPanel"
+                       class="fa fa-minus-square-o"
+                       aria-hidden="true"></i>
+                    Approved Leave Requests
+                    <span class="panel-header-icon">
+                        <span class="badge">{{approvedLeaveRequests.length}}</span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="hideApprovedLeaveRequestPanel">
+                <scrollable-table watch="approvedLeaveRequests">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th class="table-rms">Leave Type</th>
+                                <th class="table-rms">Start Date</th>
+                                <th class="table-rms">End Date</th>
+                                <th class="table-rms"># of Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="leaveRequest in approvedLeaveRequests" row-id="{{leaveRequest.Id}}">
+                                <td>{{leaveRequest.LeaveTypeName}}</td>
+                                <td>{{leaveRequest.StartDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{leaveRequest.EndDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{leaveRequest.numberOfDays}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+</div>

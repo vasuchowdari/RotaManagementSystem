@@ -1,0 +1,49 @@
+﻿<div class="horizontal-spacer"></div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i data-ng-click="toggleAssignedShiftsPanel()"
+                       data-ng-hide="!hideAssignedShiftsPanel"
+                       class="fa fa-plus-square-o clickable"
+                       aria-hidden="true"></i>
+                    <i data-ng-click="toggleAssignedShiftsPanel()"
+                       data-ng-hide="hideAssignedShiftsPanel"
+                       class="fa fa-minus-square-o clickable"
+                       aria-hidden="true"></i>
+                    Assigned Shifts
+                    <span class="panel-header-icon">
+                        <span class="badge">{{assignedShifts.length}}</span>
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="hideAssignedShiftsPanel">
+                <scrollable-table watch="assignedShifts">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th class="table-rms">Shift Start</th>
+                                <th class="table-rms">Shift End</th>
+                                <th class="table-rms">Location</th>
+                                <th class="table-rms">Duration (Hrs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="shift in assignedShifts" row-id="{{shift.Id}}">
+                                <td>{{shift.StartDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{shift.EndDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{shift.Location}}</td>
+                                <td>{{shift.hours}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">&nbsp;</div>
+</div>

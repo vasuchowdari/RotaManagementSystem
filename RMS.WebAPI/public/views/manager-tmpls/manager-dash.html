@@ -1,0 +1,73 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Outstanding Time Correction Forms
+                    <span class="panel-header-icon">
+                        <span class="badge">{{timeAdjustmentForms.length}}</span>
+                        <i class="fa fa-file-text" aria-hidden="true"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <scrollable-table watch="timeAdjustmentForms">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Shift Location</th>
+                                <th>Shift Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="form in timeAdjustmentForms" row-id="{{form.id}}">
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.StaffName}}</td>
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.ShiftLocation}}</td>
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.ShiftStartDateTime | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Leave Requests
+                    <span class="panel-header-icon">
+                        <span class="badge">{{leaveRequests.length}}</span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <scrollable-table watch="leaveRequests">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th># of Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="request in leaveRequests"
+                                row-id="request.id">
+                                <td>{{request.StaffName}}</td>
+                                <td>{{request.StartDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{request.EndDateTime | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{request.NumberOfDays}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+</div>

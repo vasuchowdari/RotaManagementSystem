@@ -1,0 +1,197 @@
+﻿<div class="container popup">
+    <div class="col-sm-12">
+        <div class="panel panel-heading">
+            <div class="panel-title">
+                <h4>
+                    Leave / Training - {{username}}
+                    <span class="panel-header-icon">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form data-ng-submit="submitLeaveRequest()"
+                  class="form-horizontal"
+                  role="form"
+                  name="staffLeaveForm">
+                <div class="row">
+                    <div class="col-xs-1">
+                        <label for="adminLeaveType">Type: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <select data-ng-model="leaveRequestModel.LeaveTypeId"
+                                data-ng-disabled="formDisable"
+                                data-ng-change="toggleUnpaidBreakDuration()"
+                                data-ng-options="leaveType.Id as leaveType.Name for leaveType in leaveTypes"
+                                id="adminLeaveType"
+                                name="adminLeaveType"
+                                class="form-control"
+                                tabindex="1">
+                            <option value="" selected>--- Please select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label>Paid Time: </label>
+                    </div>
+                    <div class="col-xs-3">
+                        <input data-ng-model="hours"
+                               type="number"
+                               step="1"
+                               min="0"
+                               id="hours"
+                               name="hours"
+                               class="form-control"
+                               placeholder="Hours"
+                               tabindex="4" />
+                    </div>
+                    <div class="col-xs-1">
+                        <label for="hours">hrs</label>
+                    </div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-xs-1">
+                        <label for="adminLeaveStartDateTime">From: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle"
+                               id="adminLeaveStartDateTime"
+                               role="button"
+                               data-toggle="dropdown"
+                               data-target="#"
+                               href="">
+                                <div>
+                                    <input date-time-dropdown="{{dateFormat}}"
+                                           data-ng-model="leaveRequestModel.StartDateTime"
+                                           type="text"
+                                           class="form-control"
+                                           id="startDateTime"
+                                           name="startDateTime"
+                                           tabindex="2" />
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="adminLeaveStartDateTime">
+                                <datetimepicker data-ng-model="leaveRequestModel.StartDateTime"
+                                                data-datetimepicker-config="dtpStart"></datetimepicker>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">&nbsp;</div>
+                    <div class="col-xs-3">
+                        <input data-ng-model="minutes"
+                               type="number"
+                               step="1"
+                               min="0"
+                               id="minutes"
+                               name="minutes"
+                               class="form-control"
+                               placeholder="Minutes"
+                               tabindex="5" />
+                    </div>
+                    <div class="col-xs-1">
+                        <label for="minutes">mins</label>
+                    </div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-xs-1">
+                        <label for="adminLeaveEndDateTime">To: </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle"
+                               id="adminLeaveEndDateTime"
+                               role="button"
+                               data-toggle="dropdown"
+                               data-target="#"
+                               href="">
+                                <div>
+                                    <input date-time-dropdown="{{dateFormat}}"
+                                           data-ng-model="leaveRequestModel.EndDateTime"
+                                           type="text"
+                                           class="form-control"
+                                           id="endDateTime"
+                                           name="endDateTime"
+                                           tabindex="3" />
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="adminLeaveEndDateTime">
+                                <datetimepicker data-ng-model="leaveRequestModel.EndDateTime"
+                                                data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label for="unpaidBreakDuration">Unpaid Break Duration: </label>
+                    </div>
+                    <div class="col-xs-3">
+                        <input data-ng-model="unpaidBreakDuration"
+                               data-ng-disabled="unpaidBreakDurationDisabled"
+                               id="unpaidBreakDuration"
+                               name="unpaidBreakDuration"
+                               class="form-control"
+                               placeholder="Unpaid Break Duration (mins)"
+                               tabindex="6" />
+                    </div>
+                    <div class="col-xs-1">
+                        <label for="unpaidBreakDuration">mins</label>
+                    </div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-xs-6">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label>Paid Rate (&pound;): </label>
+                    </div>
+                    <div class="col-xs-3">
+                        <input data-ng-model="paidRate"
+                               data-ng-disabled="unpaidBreakDurationDisabled"
+                               id="paidRate"
+                               name="paidRate"
+                               class="form-control"
+                               placeholder="Paid Rate (£)"
+                               tabindex="7" />
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-xs-7">&nbsp;</div>
+                    <div class="col-xs-5">
+                        <button data-ng-disabled="formDisable"
+                                type="submit"
+                                class="btn btn-success btn-lg"
+                                tabindex="8">
+                            <i class="fa fa-save" aria-hidden="true"></i> Save Leave
+                        </button>
+                        <button data-ng-click="closeThisDialog()"
+                                type="button"
+                                class="btn btn-danger"
+                                tabindex="9">
+                            <i class="fa fa-times-circle-o" aria-hidden="true"></i> Cancel
+                        </button>
+                        <button data-ng-click="deleteLeaveRequest()"
+                                data-ng-disabled="disableDelete"
+                                type="button"
+                                class="btn btn-warning"
+                                tabindex="9">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

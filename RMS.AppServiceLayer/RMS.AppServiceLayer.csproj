@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3811584-2A03-4BB8-A8C3-0B13AC80FCF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RMS.AppServiceLayer</RootNamespace>
+    <AssemblyName>RMS.AppServiceLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Unity, Version=5.0.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Unity.5.0.16\lib\net45\AutoMapper.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\Interfaces\IAccountAppService.cs" />
+    <Compile Include="Accounts\Services\AccountAppService.cs" />
+    <Compile Include="AuditLogs\Dto\AuditLogDto.cs" />
+    <Compile Include="AuditLogs\Interfaces\IAuditLogAppService.cs" />
+    <Compile Include="AuditLogs\Services\AuditLogAppService.cs" />
+    <Compile Include="AutoMapperAslConfig.cs" />
+    <Compile Include="Base\Dto\BaseDto.cs" />
+    <Compile Include="BudgetPeriods\Dto\BudgetPeriodDto.cs" />
+    <Compile Include="BudgetPeriods\Interfaces\IBudgetPeriodAppService.cs" />
+    <Compile Include="BudgetPeriods\Services\BudgetPeriodAppService.cs" />
+    <Compile Include="Budgets\Dto\BudgetDto.cs" />
+    <Compile Include="Budgets\Interfaces\IBudgetAppService.cs" />
+    <Compile Include="Budgets\Services\BudgetAppService.cs" />
+    <Compile Include="CalendarResourceRequirements\Dto\CalendarResourceRequirementDto.cs" />
+    <Compile Include="CalendarResourceRequirements\Interfaces\ICalResourceRqAppService.cs" />
+    <Compile Include="CalendarResourceRequirements\Services\CalResourceRqAppService.cs" />
+    <Compile Include="Calendars\Dto\CalendarDto.cs" />
+    <Compile Include="Calendars\Interfaces\ICalendarAppService.cs" />
+    <Compile Include="Calendars\Services\CalendarAppService.cs" />
+    <Compile Include="Contracts\Dto\ContractDto.cs" />
+    <Compile Include="Contracts\Interfaces\IContractAppService.cs" />
+    <Compile Include="Contracts\Services\ContractAppService.cs" />
+    <Compile Include="Employees\Dto\EmployeeDto.cs" />
+    <Compile Include="Employees\Dto\EmployeeNameIdDto.cs" />
+    <Compile Include="Employees\Dto\StaffCalendarDto.cs" />
+    <Compile Include="Employees\Interfaces\IEmployeeAppService.cs" />
+    <Compile Include="Employees\Services\EmployeeAppService.cs" />
+    <Compile Include="EmployeeTypes\Dto\EmployeeTypeDto.cs" />
+    <Compile Include="EmployeeTypes\Interfaces\IEmployeeTypeAppService.cs" />
+    <Compile Include="EmployeeTypes\Services\EmployeeTypeAppService.cs" />
+    <Compile Include="Genders\Dto\GenderDto.cs" />
+    <Compile Include="Genders\Interfaces\IGenderAppService.cs" />
+    <Compile Include="Genders\Services\GenderAppService.cs" />
+    <Compile Include="Helpers\AppConstants.cs" />
+    <Compile Include="Helpers\Dto\BaseEmailDto.cs" />
+    <Compile Include="Helpers\Dto\PostEmailInputDto.cs" />
+    <Compile Include="Helpers\Dto\TempMaddieEmailDto.cs" />
+    <Compile Include="Helpers\Dto\UserPasswordEmailDto.cs" />
+    <Compile Include="Helpers\PasswordHash.cs" />
+    <Compile Include="Helpers\CommonHelperAppService.cs" />
+    <Compile Include="Helpers\Services\MailerService.cs" />
+    <Compile Include="LeaveRequests\Dto\LeaveRequestDto.cs" />
+    <Compile Include="LeaveRequests\Interfaces\ILeaveRequestAppService.cs" />
+    <Compile Include="LeaveRequests\Services\LeaveRequestAppService.cs" />
+    <Compile Include="LeaveTypes\Dto\LeaveTypeDto.cs" />
+    <Compile Include="LeaveTypes\Enums\StaffOn.cs" />
+    <Compile Include="LeaveTypes\Interfaces\ILeaveTypeAppService.cs" />
+    <Compile Include="LeaveTypes\Services\LeaveTypeAppService.cs" />
+    <Compile Include="Mailer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Mailer.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Companies\Dto\CompanyDto.cs" />
+    <Compile Include="Companies\Interfaces\ICompanyAppService.cs" />
+    <Compile Include="Companies\Services\CompanyAppService.cs" />
+    <Compile Include="Mailers\Dto\LeaveRequestEmailDto.cs" />
+    <Compile Include="Mailers\Interfaces\IMailerAppService.cs" />
+    <Compile Include="Mailers\Services\MailerAppService.cs" />
+    <Compile Include="PersonnelLeaveProfiles\Dto\PersonnelLeaveProfileDto.cs" />
+    <Compile Include="PersonnelLeaveProfiles\Interfaces\IPersonnelLeaveProfileAppService.cs" />
+    <Compile Include="PersonnelLeaveProfiles\Services\PersonnelLeaveProfileAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Dto\DailyActivityReportParamsDto.cs" />
+    <Compile Include="Reports\Dto\MonthlyPayrollReportParamsDto.cs" />
+    <Compile Include="Reports\Interfaces\IReportAppService.cs" />
+    <Compile Include="Reports\Services\ReportAppService.cs" />
+    <Compile Include="ResourceRateModifiers\Dto\ResourceRateModifierDto.cs" />
+    <Compile Include="ResourceRateModifiers\Interfaces\IResourceRateModifierAppService.cs" />
+    <Compile Include="ResourceRateModifiers\Services\ResourceRateModifierAppService.cs" />
+    <Compile Include="Resources\Dto\ResourceDto.cs" />
+    <Compile Include="Resources\Interfaces\IResourceAppService.cs" />
+    <Compile Include="Resources\Services\ResourceAppService.cs" />
+    <Compile Include="ShiftProfiles\Dto\ShiftProfileDto.cs" />
+    <Compile Include="ShiftProfiles\Interfaces\IShiftProfileAppService.cs" />
+    <Compile Include="ShiftProfiles\Services\ShiftProfileAppService.cs" />
+    <Compile Include="Shifts\Dto\ShiftDto.cs" />
+    <Compile Include="Shifts\Interfaces\IShiftAppService.cs" />
+    <Compile Include="Shifts\Services\ShiftAppService.cs" />
+    <Compile Include="ShiftTemplates\Dto\ShiftTemplateDto.cs" />
+    <Compile Include="ShiftTemplates\Interfaces\IShiftTemplateAppService.cs" />
+    <Compile Include="ShiftTemplates\Services\ShiftTemplateAppService.cs" />
+    <Compile Include="ShiftTypes\Dto\ShiftTypeDto.cs" />
+    <Compile Include="ShiftTypes\Interfaces\IShiftTypeAppService.cs" />
+    <Compile Include="ShiftTypes\Services\ShiftTypeAppService.cs" />
+    <Compile Include="SitePersonnelLookups\Dto\SitePersonnelLookupDto.cs" />
+    <Compile Include="SitePersonnelLookups\Interfaces\ISitePersonnelLookupAppService.cs" />
+    <Compile Include="SitePersonnelLookups\Services\SitePersonnelLookupAppService.cs" />
+    <Compile Include="Sites\Dto\SiteDto.cs" />
+    <Compile Include="Sites\Interfaces\ISiteAppService.cs" />
+    <Compile Include="Sites\Services\SiteAppService.cs" />
+    <Compile Include="SiteTypes\Dto\SiteTypeDto.cs" />
+    <Compile Include="SiteTypes\Interfaces\ISiteTypeAppService.cs" />
+    <Compile Include="SiteTypes\Services\SiteTypeAppService.cs" />
+    <Compile Include="SubSites\Dto\SubSiteDto.cs" />
+    <Compile Include="SubSites\Interfaces\ISubSiteAppService.cs" />
+    <Compile Include="SubSites\Services\SubSiteAppService.cs" />
+    <Compile Include="SubSiteTypes\Dto\SubSiteTypeDto.cs" />
+    <Compile Include="SubSiteTypes\Interfaces\ISubSiteTypeAppService.cs" />
+    <Compile Include="SubSiteTypes\Services\SubSiteTypeAppService.cs" />
+    <Compile Include="SystemAccessRoles\Dto\SystemAccessRoleDto.cs" />
+    <Compile Include="SystemAccessRoles\Interfaces\ISystemAccessRoleAppService.cs" />
+    <Compile Include="SystemAccessRoles\Services\SystemAccessRoleAppService.cs" />
+    <Compile Include="TimeFormAdjustments\Dto\TimeAdjustmentFormDto.cs" />
+    <Compile Include="TimeFormAdjustments\Interfaces\ITimeAdjustmentFormAppService.cs" />
+    <Compile Include="TimeFormAdjustments\Services\TimeAdjustmentFormAppService.cs" />
+    <Compile Include="UnprocessedZkTimeData\Dto\UnprocessedZkTimeDataDto.cs" />
+    <Compile Include="UserDefinedSystemConfigs\Dto\UserDefinedSystemConfigDto.cs" />
+    <Compile Include="UserDefinedSystemConfigs\Interfaces\IUserDefinedSystemConfigAppService.cs" />
+    <Compile Include="UserDefinedSystemConfigs\Services\UserDefinedSystemConfigAppService.cs" />
+    <Compile Include="Users\Dto\UserDto.cs" />
+    <Compile Include="Users\Dto\UserListItemDto.cs" />
+    <Compile Include="Users\Interfaces\IUserAppService.cs" />
+    <Compile Include="Users\Services\UserAppService.cs" />
+    <Compile Include="Zktime\Dto\StaffIdMatrixDto.cs" />
+    <Compile Include="Zktime\Enums\ShiftProfileStatus.cs" />
+    <Compile Include="Zktime\Events\ShiftProfileEventArgs.cs" />
+    <Compile Include="Zktime\Interfaces\IZkTimeService.cs" />
+    <Compile Include="Zktime\Interfaces\IZktRecordAppService.cs" />
+    <Compile Include="Zktime\Services\OvertimeHandler.cs" />
+    <Compile Include="Zktime\Services\ZkTimeService.cs" />
+    <Compile Include="Zktime\Services\ZktRecordAppService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RMS.Core\RMS.Core.csproj">
+      <Project>{e382fae4-7c60-4407-a25b-94407bc616b7}</Project>
+      <Name>RMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMS.Infrastructure\RMS.Infrastructure.csproj">
+      <Project>{35a6ae03-9b06-4a3b-91c3-c93f91bf02f6}</Project>
+      <Name>RMS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMS.Reoprting\RMS.Reporting.csproj">
+      <Project>{7070de76-e891-4758-abdc-7465eec6f6ba}</Project>
+      <Name>RMS.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMS.Zktime\RMS.Zktime.csproj">
+      <Project>{2d35987b-76cc-420e-befc-2549d8df2a64}</Project>
+      <Name>RMS.Zktime</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Mailer.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Mailer.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accounts\Dto\" />
+    <Folder Include="UnprocessedZkTimeData\Interfaces\" />
+    <Folder Include="UnprocessedZkTimeData\Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

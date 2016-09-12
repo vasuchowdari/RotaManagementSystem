@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30452557-8267-44B2-98DF-431136A60681}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RMS.ClientTests</RootNamespace>
+    <AssemblyName>RMS.ClientTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="dependencies\angular-block-ui.js" />
+    <Content Include="dependencies\angular-block-ui.min.js" />
+    <Content Include="dependencies\angular-local-storage.js" />
+    <Content Include="dependencies\angular-local-storage.min.js" />
+    <Content Include="dependencies\angular-mocks.js" />
+    <Content Include="dependencies\angular-ui-router.js" />
+    <Content Include="dependencies\angular-ui-router.min.js" />
+    <Content Include="dependencies\angular.js" />
+    <Content Include="dependencies\angular.min.js" />
+    <Content Include="dependencies\chai.js" />
+    <Content Include="dependencies\datetimepicker.js" />
+    <Content Include="dependencies\daypilot-all.min.js" />
+    <Content Include="dependencies\jasmine.js" />
+    <Content Include="dependencies\lodash.js" />
+    <Content Include="dependencies\lodash.min.js" />
+    <Content Include="dependencies\moment.min.js" />
+    <Content Include="dependencies\ngDialog.js" />
+    <Content Include="dependencies\ngDialog.min.js" />
+    <Content Include="dependencies\sinon.js" />
+    <Content Include="dependencies\toaster.js" />
+    <Content Include="dependencies\toaster.min.js" />
+    <Content Include="dependencies\ui-router-tabs.js" />
+    <Content Include="specs\controllers\adminAppControllerSpec.js" />
+    <Content Include="specs\controllers\indexControllerSpec.js" />
+    <Content Include="specs\controllers\loginControllerSpec.js" />
+    <Content Include="specs\controllers\managerAppControllerSpec.js" />
+    <Content Include="specs\controllers\managerDashControllerSpec.js" />
+    <Content Include="specs\controllers\managerSiteCalendarControllerSpec.js" />
+    <Content Include="specs\controllers\managerSiteCalendarPeriodControllerSpec.js" />
+    <Content Include="specs\controllers\managerSiteControllerSpec.js" />
+    <Content Include="specs\controllers\managerSitesControllerSpec.js" />
+    <Content Include="specs\controllers\profileControllerSpec.js" />
+    <Content Include="specs\controllers\resetControllerSpec.js" />
+    <Content Include="specs\services\adminAreaServiceSpec.js" />
+    <Content Include="specs\services\helperServiceSpec.js" />
+    <Content Include="specs\services\managerAreaServiceSpec.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

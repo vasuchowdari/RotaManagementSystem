@@ -1,0 +1,170 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h4>Add New Shift(s)</h4>
+        
+        <form role="form" data-ng-submit="saveResRqs()">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="resource-select">Role: </label>
+                        </td>
+                        <td>
+                            <select data-ng-model="selectedResourceId"
+                                    data-ng-options="resource.Id as resource.Name for resource in resources"
+                                    data-ng-change="resourceTypeChanged()"
+                                    data-ng-disabled="formDisable"
+                                    id="resource-select"
+                                    class="form-control">
+                            </select>
+                        </td>
+                        <td>
+                            <label for="shift-template-select">Shift Template: </label>
+                        </td>
+                        <td>
+                            <select data-ng-model="selectedShiftTemplateId"
+                                    data-ng-options="shiftTemplate.Id as shiftTemplate.Name for shiftTemplate in filteredTemplates"
+                                    data-ng-change="shiftTemplateChanged()"
+                                    data-ng-disabled="formDisable"
+                                    id="shift-template-select"
+                                    class="form-control"></select>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="shift-start-time">Start Time:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftModel.ShiftTemplate.StartTime"
+                                   type="text"
+                                   class="form-control"
+                                   id="shift-start-time"
+                                   placeholder="Shift Start Time"
+                                   disabled="disabled" />
+                        </td>
+                        <td>
+                            <label for="shift-end-time">End Time:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftModel.ShiftTemplate.EndTime"
+                                   type="text"
+                                   class="form-control"
+                                   id="shift-end-time"
+                                   placeholder="Shift End Time"
+                                   disabled="disabled" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resource-quantity">Quantity: </label>
+                        </td>
+                        <td>
+                            <input data-ng-model="quantity"
+                                   data-ng-disabled="formDisable"
+                                   type="number"
+                                   id="resource-quantity"
+                                   class="form-control"
+                                   placeholder="Quantity" />
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="start-date">Start Date: </label>
+                        </td>
+                        <td>
+                            <uib-datepicker data-ng-model="startDate"
+                                            data-ng-change="refreshStaff()"
+                                            min-date="options.minDate"
+                                            id="start-date"
+                                            name="start-date"
+                                            class="well rota-date-well"
+                                            datepicker-options="options"></uib-datepicker>
+                        </td>
+                        <td>
+                            <label for="end-date">End Date: </label>
+                        </td>
+                        <td>
+                            <uib-datepicker data-ng-model="endDate"
+                                            data-ng-change="refreshStaff()"
+                                            min-date="options.minDate"
+                                            id="end-date"
+                                            name="end-date"
+                                            class="well rota-date-well"
+                                            datepicker-options="options"></uib-datepicker>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Staff: </label>
+                        </td>
+                        <td>
+                            <available-staff staff="filteredStaff" />
+                        </td>
+                        <td colspan="2">
+                            <div class="col-sm-12">
+                                <label for="days-btn-group">Days: </label>
+                                <div class="btn-toolbar">
+                                    <div class="btn-group" id="days-btn-group">
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Mon = !shiftModel.ShiftTemplate.Mon"
+                                           ng-class="shiftModel.ShiftTemplate.Mon ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Mon">MON</a>
+
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Tue = !shiftModel.ShiftTemplate.Tue"
+                                           ng-class="shiftModel.ShiftTemplate.Tue ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Tue">TUE</a>
+
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Wed = !shiftModel.ShiftTemplate.Wed"
+                                           ng-class="shiftModel.ShiftTemplate.Wed ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Wed">WED</a>
+
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Thu = !shiftModel.ShiftTemplate.Thu"
+                                           ng-class="shiftModel.ShiftTemplate.Thu ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Thu">THU</a>
+
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Fri = !shiftModel.ShiftTemplate.Fri"
+                                           ng-class="shiftModel.ShiftTemplate.Fri ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Fri">FRI</a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Sat = !shiftModel.ShiftTemplate.Sat"
+                                           ng-class="shiftModel.ShiftTemplate.Sat ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="newShiftModel.ShiftTemplate.Sat">SAT</a>
+
+                                        <a href=""
+                                           data-ng-click="shiftModel.ShiftTemplate.Sun = !shiftModel.ShiftTemplate.Sun"
+                                           ng-class="shiftModel.ShiftTemplate.Sun ? 'btn btn-primary' : 'btn btn-default'"
+                                           data-ng-model="shiftModel.ShiftTemplate.Sun">SUN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">&nbsp;</td>
+                        <td>
+                            <button data-ng-disabled="formDisable"
+                                    type="submit"
+                                    class="btn btn-success btn-lg">
+                                <i class="fa fa-save"></i> Save Shift
+                            </button>
+                            <button data-ng-click="closeThisDialog()"
+                                    type="button"
+                                    class="btn btn-danger">
+                                <i class="fa fa-times-circle-o"></i> Cancel
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>        
+    </div>
+</div>

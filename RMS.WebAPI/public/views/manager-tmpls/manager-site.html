@@ -1,0 +1,57 @@
+﻿<div class="row">
+    
+    <h4>{{site.Name}}</h4>
+        
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {{site.Name}} Rotas 
+                    <span class="panel-header-icon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li data-ng-repeat="calendar in siteCalendars">
+                        
+                        <a ui-sref="manager.site.calendar({calendarId: {{calendar.Id}} })">{{calendar.Name}}</a>
+                    </li>
+                    
+                    <!--<li data-ng-repeat="calendar in siteCalendars"
+                        data-ng-hide="hasSiteLevelAccess">
+
+                        {{calendar.Name}}
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Sub Sites
+                    <span class="panel-header-icon">
+                        <i class="fa fa-building"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li data-ng-repeat="subsite in subsites">
+                        <span>
+                            <a ui-sref="manager.site.subsite({subsiteId: {{subsite.Id}} })">{{subsite.Name}}</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">&nbsp;</div>
+</div>
+
+<div ui-view></div>

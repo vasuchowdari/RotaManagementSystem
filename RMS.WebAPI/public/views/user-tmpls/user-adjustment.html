@@ -1,0 +1,163 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-1">&nbsp;</div>
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Time Clock Correction Form
+                    <span class="panel-header-icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" data-ng-submit="sendTimeAdjustmentForm()" name="timeAdjustmentForm">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="staff-name">Staff Name:</label>
+                                </td>
+                                <td>
+                                    <input data-ng-model="formModel.staffName"
+                                           type="text"
+                                           id="staff-name"
+                                           class="form-control"
+                                           placeholder="Staff Name"
+                                           disabled="disabled" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="location">Shift Location:</label>
+                                </td>
+                                <td>
+                                    <input data-ng-model="formModel.shiftLocation"
+                                           type="text"
+                                           id="location"
+                                           class="form-control"
+                                           placeholder="Shift Location"
+                                           disabled="disabled" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="shift-date">Shift Start Date:</label>
+                                </td>
+                                <td>
+                                    <input data-ng-model="shiftDate"
+                                           type="text"
+                                           id="shift-date"
+                                           class="form-control"
+                                           placeholder="Shift Start Date"
+                                           disabled="disabled" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="startTime">Time In:</label>
+                                </td>
+                                <td>
+                                    <uib-timepicker data-ng-model="formModel.actualStartDateTime"
+                                                    hour-step="hstep"
+                                                    minute-step="mstep"
+                                                    show-meridian="false"
+                                                    id="startTime"></uib-timepicker>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="endTime">Time Out:</label>
+                                </td>
+                                <td>
+                                    <uib-timepicker data-ng-model="formModel.actualEndDateTime"
+                                                    hour-step="hstep"
+                                                    minute-step="mstep"
+                                                    show-meridian="false"
+                                                    id="endTime"></uib-timepicker>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--<label for="missing-clock-in">Missed Clock In</label>-->
+                                </td>
+                                <td>
+                                    <span>(Tick as appropriate)</span>
+                                    <input data-ng-model="formModel.missedClockIn"
+                                           data-ng-disabled="formDisable"
+                                           id="missing-clock-in"
+                                           type="checkbox"
+                                           class="form-control" />
+                                    <label for="missing-clock-in">Missed Clock In</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--<label for="missing-clock-out">Missed Clock Out</label>-->
+                                </td>
+                                <td>
+                                    <input data-ng-model="formModel.missedClockOut"
+                                           data-ng-disabled="formDisable"
+                                           id="missing-clock-out"
+                                           type="checkbox"
+                                           class="form-control" />
+                                    <label for="missing-clock-out">Missed Clock Out</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--<label for="late-in">Late In</label>-->
+                                </td>
+                                <td>
+                                    <input data-ng-model="formModel.lateIn"
+                                           data-ng-disabled="formDisable"
+                                           id="late-in"
+                                           type="checkbox"
+                                           class="form-control" />
+                                    <label for="late-in">Late In</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+<!--                                    <label for="early-out">Early Out</label>-->
+                                </td>
+                                <td>
+                                    <input data-ng-model="formModel.earlyOut"
+                                           data-ng-disabled="formDisable"
+                                           id="early-out"
+                                           type="checkbox"
+                                           class="form-control" />
+                                    <label for="early-out">Early Out</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="reason">Reason for above:</label>
+                                </td>
+                                <td>
+                                    <textarea data-ng-model="formModel.notes"
+                                              data-ng-disabled="formDisable"
+                                              id="reason"
+                                              class="form-control"
+                                              required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button data-ng-disabled="formDisable"
+                                            type="submit"
+                                            class="btn btn-success">
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Form
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1">&nbsp;</div>
+</div>

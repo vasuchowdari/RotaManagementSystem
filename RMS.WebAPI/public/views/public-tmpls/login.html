@@ -1,0 +1,50 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-1">&nbsp;</div>
+    <div class="col-lg-10">
+        <form role="form" data-ng-submit="login()">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>&nbsp;</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input data-ng-model="loginData.login"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Login" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input data-ng-model="loginData.password"
+                                   type="password"
+                                   class="form-control"
+                                   placeholder="Password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button data-ng-disabled="loginBtnDisabled"
+                                    type="submit"
+                                    class="btn btn-lg btn-info btn-block">
+                                <i class="glyphicon glyphicon-log-in"></i> Login
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>    
+        </form>
+        <div class="container">
+            <span>
+                <a ui-sref="reset">Forgotten your password?</a>
+            </span>
+        </div>
+    </div>
+    <div class="col-lg-1">&nbsp;</div>
+</div>

@@ -1,0 +1,148 @@
+﻿<div class="container popup">
+    <div class="row">
+        <form data-ng-submit="submitShiftTemplateCreateForm()"
+              class="form-horizontal" 
+              role="form" 
+              name="createNewShiftTemplateForm">
+            <fieldset>
+                <legend>Create New Shift Template</legend>
+                <div class="form-group">
+                    <label for="templateName" class="col-lg-2 control-label">Name: </label>
+                    <div class="col-lg-10">
+                        <input data-ng-model="shiftTemplateModel.Name"
+                               type="text"
+                               class="form-control"
+                               id="templateName"
+                               name="templateName"
+                               placeholder="Name">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="templateResource" class="col-lg-2 control-label">Role: </label>
+                    <div class="col-lg-4">
+                        <select data-ng-model="shiftTemplateModel.ResourceId"
+                                data-ng-options="resource.Id as resource.Name for resource in resources"
+                                class="form-control"
+                                id="templateResource"
+                                name="templateResource">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+
+                    <label for="templateShiftRate" class="col-lg-2 control-label">Shift Rate (&pound;): </label>
+                    <div class="col-lg-4">
+                        <input data-ng-model="shiftTemplateModel.ShiftRate"
+                               type="number"
+                               step="0.01"
+                               min="0"
+                               class="form-control"
+                               id="templateShiftRate"
+                               name="templateShiftRate"
+                               placeholder="Shift Rate (&pound;)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="templateStartTime" class="col-lg-2 control-label">Start Time: </label>
+                    <div class="col-lg-4">
+                        <uib-timepicker data-ng-model="shiftTemplateModel.StartTime"
+                                        hour-step="hstep"
+                                        minute-step="mstep"
+                                        show-meridian="false"
+                                        id="templateStartTime"
+                                        name="templateStartTime"></uib-timepicker>
+                    </div>
+
+                    <label for="templateEndTime" class="col-lg-2 control-label">End Time: </label>
+                    <div class="col-lg-4">
+                        <uib-timepicker data-ng-model="shiftTemplateModel.EndTime"
+                                        hour-step="hstep"
+                                        minute-step="mstep"
+                                        show-meridian="false"
+                                        id="templateEndTime"
+                                        name="templateEndTime"></uib-timepicker>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="templateUnpaidBreakDuration" class="col-lg-2 control-label">Unpaid Break: </label>
+                    <div class="col-lg-10">
+                        <input data-ng-model="shiftTemplateModel.UnpaidBreakDuration"
+                               type="number"
+                               class="form-control"
+                               id="templateUnpaidBreakDuration"
+                               name="templateUnpaidBreakDuration"
+                               placeholder="Unpaid Break Duration (mins)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="templateSites" class="col-lg-2 control-label">Locations: </label>
+                    <div class="panel panel-default col-lg-10">
+                        <div class="panel-body">
+                            <div class="col-md-6">
+                                <label class="control control--checkbox" for="{{baldock.Name}}">
+                                    {{baldock.Name}}
+                                    <input data-ng-model="baldock.isChecked"
+                                           data-ng-click="clearBaldockChildren()"
+                                           type="checkbox"
+                                           id="{{baldock.Name}}"
+                                           name="{{baldock.Name}}" />
+                                    <div class="control__indicator"></div>
+                                </label>
+
+
+                                <ul>
+                                    <li data-ng-repeat="subsite in baldock.SubSiteModels">
+                                        <label class="control control--checkbox" for="{{subsite.Name}}">
+                                            {{subsite.Name}}
+                                            <input data-ng-model="subsite.isChecked"
+                                                   data-ng-click="selectBaldockParentSite()"
+                                                   type="checkbox"
+                                                   id="{{subsite.Name}}"
+                                                   name="{{subsite.Name}}" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li data-ng-repeat="site in psycare">
+                                        <label class="control control--checkbox" for="{{site.Name}}">
+                                            {{site.Name}}
+                                            <input data-ng-model="site.isChecked"
+                                                   type="checkbox"
+                                                   id="{{site.Name}}"
+                                                   name="{{site.Name}}" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-8">&nbsp;</div>
+                    <div class="col-lg-4">
+                        <button type="submit"
+                                class="btn btn-success btn-lg">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Template
+                        </button>
+
+                        <button data-ng-click="closeThisDialog()"
+                                type="button"
+                                class="btn btn-danger">
+                            <i class="fa fa-times-circle-o" aria-hidden="true"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>    
+</div>

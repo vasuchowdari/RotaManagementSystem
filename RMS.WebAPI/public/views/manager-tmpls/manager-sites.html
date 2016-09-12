@@ -1,0 +1,93 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    My Sites
+                    <span class="panel-header-icon">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li data-ng-repeat="site in filteredSites">
+                        <a ui-sref="manager.site({siteId: {{site.Id}} })">{{site.Name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    How To Use The Rota - {{howtoTitle}}
+                    <span class="user-dash-header-panel-expander"
+                          data-ng-hide="panelExpanded">
+                        
+                        <i data-ng-click="toggleHowToPanel()"
+                           class="fa fa-plus-square-o clickable"
+                           aria-hidden="true"></i> Show 'How To'
+                    </span>
+                    
+                    <span class="user-dash-header-panel-expander"
+                          data-ng-hide="!panelExpanded">
+                        <i data-ng-click="toggleHowToPanel()"
+                           class="fa fa-minus-square-o clickable"
+                           aria-hidden="true"></i> Hide 'How To'
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body rms-show-hide"
+                 data-ng-hide="!panelExpanded">
+                
+                <div style="height: 300px;">
+                    <div uib-carousel active="0" interval="0" no-wrap="false">
+                        <div uib-slide ng-repeat="slide in slides track by slide.id"
+                             index="slide.id">
+                            <img ng-src="{{slide.image}}" style="margin:auto;" alt="image" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="horizontal-spacer">&nbsp;</div>
+                
+                <button class="btn btn-sm btn-warning"
+                        data-ng-click="showStarterHowTo()">
+                    <span>1 Using the Rota</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </button>
+
+                <button class="btn btn-sm btn-warning"
+                        data-ng-click="showNewRoleHowTo()">
+                    <span>2 Add New Role to the Rota</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </button>
+                
+                <button class="btn btn-sm btn-warning"
+                        data-ng-click="showAddShiftsHowTo()">
+                    <span>3 Add Shifts to existing Role</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </button>
+                
+                <button class="btn btn-sm btn-warning"
+                        data-ng-click="showReassignShiftHowTo()">
+                    <span>4 Re-assign a Shift on Rota</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </button>
+                
+                <button class="btn btn-sm btn-warning"
+                        data-ng-click="showDeleteShiftHowTo()">
+                    <span>5 Delete Shift or Role from Rota</span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>

@@ -1,0 +1,58 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h4>Update Rota Shift</h4>
+        <form role="form" data-ng-submit="updateShift()">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <available-staff staff="filteredStaff" />
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">
+                            <div data-ng-hide="hideDeleteWarning"
+                                 class="alert alert-dismissable alert-warning">
+                                <h4>Warning!</h4>
+                                <p>YOU ARE ABOUT TO DELETE A SHIFT FROM THE ROTA! CONTINE?</p>
+                            </div>
+                        </td>
+                        <td data-ng-hide="!hideDeleteWarning">
+                            <button data-ng-disabled="formDisable"
+                                    type="submit"
+                                    class="btn btn-success btn-lg">
+                                <i class="fa fa-save" aria-hidden="true"></i> Save Shift
+                            </button>
+                            <button data-ng-click="closeThisDialog()"
+                                    data-ng-disabled="formDisable"
+                                    type="button"
+                                    class="btn btn-danger">
+                                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Cancel
+                            </button>
+                            <button data-ng-click="triggerDeleteWarning()"
+                                    data-ng-disabled="formDisable"
+                                    type="button"
+                                    class="btn btn-warning">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                            </button>
+                        </td>
+                        <td data-ng-hide="hideDeleteWarning">
+                            <button data-ng-click="continueDelete()"
+                                    data-ng-disabled="formDisable"
+                                    type="button"
+                                    class="btn btn-warning btn-lg">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                            </button>
+                            <button data-ng-click="cancel()"
+                                    type="button"
+                                    class="btn btn-danger">
+                                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Cancel
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

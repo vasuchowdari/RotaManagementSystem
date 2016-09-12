@@ -1,0 +1,258 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Shift Adjustment
+                <span class="panel-header-icon">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </span>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Shift & Clocking Data
+                            <span class="panel-header-icon">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="staff-name">Staff Member:</label>
+                                <input data-ng-model="shiftViewModel.staffName"
+                                       type="text"
+                                       id="staff-name"
+                                       class="form-control"
+                                       placeholder="Staff Name"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="location">Shift Location:</label>
+                                <input data-ng-model="shiftViewModel.shiftLocation"
+                                       type="text"
+                                       id="location"
+                                       class="form-control"
+                                       placeholder="Shift Location"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="status">Shift Status:</label>
+                                <input data-ng-model="shiftViewModel.shiftStatus"
+                                       type="text"
+                                       id="status"
+                                       class="form-control"
+                                       placeholder="Shift Status"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        
+                        <div class="horizontal-spacer"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="resource-name">Shift Role:</label>
+                                <input data-ng-model="shiftViewModel.resourceName"
+                                       type="text"
+                                       id="resource-name"
+                                       class="form-control"
+                                       placeholder="Shift Role"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+                        
+                        <div class="horizontal-spacer"><hr/></div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="location">Shift Start Date:</label>
+                                <input data-ng-model="shiftViewModel.shiftDate"
+                                       type="text"
+                                       id="shift-date"
+                                       class="form-control"
+                                       placeholder="Shift Start Date"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="shift-start">Shift Start:</label>
+                                <input data-ng-model="shiftViewModel.startDateTime"
+                                       type="text"
+                                       id="shift-start"
+                                       class="form-control"
+                                       placeholder="Shift Start"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="shift-end">Shift End:</label>
+                                <input data-ng-model="shiftViewModel.endDateTime"
+                                       type="text"
+                                       id="shift-end"
+                                       class="form-control"
+                                       placeholder="Shift End"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">
+                                <label for="clock-in">Clock In:</label>
+                                <input data-ng-model="shiftViewModel.zktStartDateTime"
+                                       type="text"
+                                       id="clock-in"
+                                       class="form-control"
+                                       placeholder="Clock In"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="clock-out">Clock Out:</label>
+                                <input data-ng-model="shiftViewModel.zktEndDateTime"
+                                       type="text"
+                                       id="clock-out"
+                                       class="form-control"
+                                       placeholder="Clock Out"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">
+                                <label for="actual-in">Actual In:</label>
+                                <input data-ng-model="shiftViewModel.actualStartDateTime"
+                                       type="text"
+                                       id="actual-in"
+                                       class="form-control"
+                                       placeholder="Actual From"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="actual-out">Actual Out:</label>
+                                <input data-ng-model="shiftViewModel.actualEndDateTime"
+                                       type="text"
+                                       id="actual-out"
+                                       class="form-control"
+                                       placeholder="Actual To"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        
+                        <div class="horizontal-spacer"><hr /></div>
+
+                        <div data-ng-hide="hideUnmatchedSection"
+                             class="row">
+                            <div class="col-md-4">
+                                <label>Staff Member:</label>
+                                <select data-ng-model="selectedUnmatchedEmployee"
+                                        data-ng-options="employee.staffName as employee.staffName for employee in employees"
+                                        data-ng-change="getUnmatchedZkTimeData()"
+                                        id="manager-reason-dropdown"
+                                        class="form-control">
+                                    <option value="" selected>--- Please select ---</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="unmatched-in">Unmatched In:</label>
+                                <select data-ng-model="selectedUSDT"
+                                        data-ng-disabled="unmatchedZktDisabled"
+                                        data-ng-options="usdt as usdt for usdt in unmatchedStartDateTimes"
+                                        id="unmatched-in"
+                                        class="form-control">
+                                    <option value="" selected>--- Please select ---</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="unmatched-out">Unmatched Out:</label>
+                                <select data-ng-model="selectedUEDT"
+                                        data-ng-disabled="unmatchedZktDisabled"
+                                        data-ng-options="uedt as uedt for uedt in unmatchedEndDateTimes"
+                                        id="unmatched-out"
+                                        class="form-control">
+                                    <option value="" selected>--- Please select ---</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Administrator Action
+                            <span class="panel-header-icon">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="col-md-4">
+                                <label>Reason:</label>
+                                <select data-ng-model="shiftUpdateViewModel.reason"
+                                        data-ng-disabled="formDisable"
+                                        data-ng-options="reason as reason for reason in reasons"
+                                        id="manager-reason-dropdown"
+                                        class="form-control"
+                                        tabindex="1">
+                                    <option value="" selected>--- Please select ---</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="manager-notes">Notes:</label>
+                                <textarea data-ng-model="shiftUpdateViewModel.notes"
+                                          data-ng-disabled="formDisable"
+                                          id="manager-notes"
+                                          class="form-control"
+                                          tabindex="2"></textarea>
+                            </div>
+
+                            <div class="col-md-12">&nbsp;</div>
+
+                            <div class="col-md-3">&nbsp;</div>
+                            <div class="col-md-3">
+                                <label>Actual In: </label>
+                                <uib-timepicker data-ng-model="shiftUpdateViewModel.actualStartDateTime"
+                                                hour-step="hstep"
+                                                minute-step="mstep"
+                                                show-meridian="false"
+                                                tabindex="3"></uib-timepicker>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Actual Out: </label>
+                                <uib-timepicker data-ng-model="shiftUpdateViewModel.actualEndDateTime"
+                                                hour-step="hstep"
+                                                minute-step="mstep"
+                                                show-meridian="false"
+                                                tabindex="4"></uib-timepicker>
+                            </div>
+                            <div class="col-md-3">&nbsp;</div>
+
+                            <div class="col-md-12">&nbsp;</div>
+
+                            <div class="col-md-8">&nbsp;</div>
+                            <div class="col-md-4">
+                                <button data-ng-click="actionTimeAdjustment()"
+                                        data-ng-disabled="formDisable"
+                                        type="button"
+                                        class="btn btn-success btn-lg"
+                                        tabindex="5">
+                                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Adjustment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

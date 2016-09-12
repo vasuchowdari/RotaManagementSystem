@@ -1,0 +1,126 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <h4>Leave Request Form</h4>
+    
+    <form role="form" data-ng-submit="sendLeaveRequestForm()">
+        <div class="col-lg-2">&nbsp;</div>
+        <div class="col-lg-8">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="staff-name">Employee Name:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="formModel.staffName"
+                                   type="text"
+                                   id="staff-name"
+                                   class="form-control"
+                                   placeholder="Staff Name"
+                                   disabled="disabled" />
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="leave-type">Leave Type: </label>
+                        </td>
+                        <td>
+                            <select data-ng-model="selectedLeaveTypeId"
+                                    data-ng-options="leaveType.Id as leaveType.Name for leaveType in leaveTypes"
+                                    data-ng-disabled="formDisable"
+                                    id="leave-type"
+                                    class="form-control">
+                                <option value="" selected>--- Please select ---</option>
+                            </select>
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="start-date">Start Date: </label>
+                        </td>
+                        <td>
+                            <datetimepicker data-ng-model="formModel.startDateTime"
+                                            data-datetimepicker-config="dtp"
+                                            data-ng-change="calculateAmountRequested()"
+                                            data-ng-disabled="formDisable"
+                                            id="start-date"></datetimepicker>
+                        </td>
+                        <td>
+                            <label for="end-date">End Date: </label>
+                        </td>
+                        <td>
+                            <datetimepicker data-ng-model="formModel.endDateTime"
+                                            data-datetimepicker-config="dtp"
+                                            data-ng-change="calculateAmountRequested()"
+                                            data-ng-disabled="formDisable"
+                                            id="end-date"></datetimepicker>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label for="start-date-half-day">Half Day on Start?:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="startHalfDay"
+                                   data-ng-change="calculateAmountRequested()"
+                                   data-ng-disabled="formDisabled"
+                                   id="start-date-half-day"
+                                   type="checkbox"
+                                   class="form-control" />
+                        </td>
+                        <td>
+                            <label for="end-date-half-day">Half Day on End?</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="endHalfDay"
+                                   data-ng-change="calculateAmountRequested()"
+                                   data-ng-disabled="formDisabled"
+                                   id="end-date-half-day"
+                                   type="checkbox"
+                                   class="form-control" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="number-of-days"># Days (inclusive): </label>
+                        </td>
+                        <td>
+                            <input data-ng-model="formModel.amountRequested"
+                                   id="number-of-days"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="Number of Days" 
+                                   disabled="disabled" />
+                        </td>
+                        <td>
+                            <label for="notes">Notes: </label>
+                        </td>
+                        <td>
+                            <textarea data-ng-model="formModel.notes"
+                                      data-ng-diasabled="formDiable"
+                                      id="notes"
+                                      class="form-control">
+                            </textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <button data-ng-disabled="formDisable"
+                                    type="submit"
+                                    class="btn btn-success">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Form
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2">&nbsp;</div>
+    </form>
+</div>

@@ -1,0 +1,257 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<form data-ng-submit="submitSystemConfigUpdateForm()"
+      role="form" 
+      name="systemConfigUpdateForm">
+    
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Shift Clocking Time Thresholds
+                <span class="panel-header-icon">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </span>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigMinLookback"
+                               class="col-lg-2 control-label">
+                            Min Look Back (Hrs):
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.NHoursAgo"
+                                   type="number"
+                                   step="0.5"
+                                   class="form-control"
+                                   id="sysConfigMinLookback"
+                                   name="sysConfigMinLookback"
+                                   placeholder="Min Look Back">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                Controls the automatic ZKTime import job by defining how long should RMS 
+                                wait after the shift has ended before creating an Actual. e.g. to give 
+                                enough time for overstaying staff to complete their work before RMS creates 
+                                an Actual. Setting is in hours.
+                            </p>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigPostStartValidThreshold"
+                               class="col-lg-2 control-label">
+                            Shift Start Threshold (Mins):
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.ShiftPostStartStillValidThresholdValue"
+                                   type="number"
+                                   step="0.5"
+                                   min="0"
+                                   class="form-control"
+                                   id="sysConfigPostStartValidThreshold"
+                                   name="sysConfigPostStartValidThreshold"
+                                   placeholder="Shift Start Threshold">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the discretionary time period where Staff may clock in after their
+                                shift has started and still have the shift auto-approved for Payroll.
+                            </p>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigPreStartEarlyInThreshold"
+                               class="col-lg-2 control-label">
+                            Early In Threshold (Mins):
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.ShiftPreStartEarlyInThresholdValue"
+                                   type="number"
+                                   step="0.5"
+                                   class="form-control"
+                                   id="sysConfigPreStartEarlyInThreshold"
+                                   name="sysConfigPreStartEarlyInThreshold"
+                                   placeholder="Early In Threshold">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the time period where Staff may clock in before their
+                                shift has started and still have the shift auto-approved for Payroll.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigPostEndValidThreshold"
+                               class="col-lg-2 control-label">
+                            Late Out Threshold (Mins):
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.ShiftPostEndValidThresholdValue"
+                                   type="number"
+                                   step="0.5"
+                                   min="0"
+                                   class="form-control"
+                                   id="sysConfigPostEndValidThreshold"
+                                   name="sysConfigPostEndValidThreshold"
+                                   placeholder="Late Out Threshold">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the time period where Staff may clock out after their
+                                shift has ended and still have the shift auto-approved for Payroll.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Payroll Values
+                <span class="panel-header-icon">
+                    <i class="fa fa-gbp" aria-hidden="true"></i>
+                </span>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigPayrollStartDayOfMonth"
+                               class="col-lg-2 control-label">
+                            Start Day of Month:
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.PayrollStartDayOfMonth"
+                                   type="number"
+                                   step="1"
+                                   min="1"
+                                   max="31"
+                                   class="form-control"
+                                   id="sysConfigPayrollStartDayOfMonth"
+                                   name="sysConfigPayrollStartDayOfMonth"
+                                   placeholder="Payroll Start Day of Month">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the default day of the month when Payroll starts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigPayrollEndDayOfMonth"
+                               class="col-lg-2 control-label">
+                            End Day of Month:
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.PayrollEndDayOfMonth"
+                                   type="number"
+                                   step="1"
+                                   min="1"
+                                   max="31"
+                                   class="form-control"
+                                   id="sysConfigPayrollEndDayOfMonth"
+                                   name="sysConfigPayrollEndDayOfMonth"
+                                   placeholder="Payroll End Day of Month">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the default day of the month when Payroll ends.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigNicFactor"
+                               class="col-lg-2 control-label">
+                            NIC Factor:
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.NICFactor"
+                                   type="number"
+                                   step="0.01"
+                                   min="0"
+                                   class="form-control"
+                                   id="sysConfigNicFactor"
+                                   name="sysConfigNicFactor"
+                                   placeholder="NIC Factor">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the default NIC factor applied to all Contractors when 
+                                calculating their salary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="horizontal-spacer">&nbsp;</div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="sysConfigAccruedHolidayFactor"
+                               class="col-lg-2 control-label">
+                            Accrued Holiday Factor:
+                        </label>
+                        <div class="col-lg-4">
+                            <input data-ng-model="defaultSystemConfig.AccruedHolidayFactor"
+                                   type="number"
+                                   step="0.0001"
+                                   min="0"
+                                   class="form-control"
+                                   id="sysConfigAccruedHolidayFactor"
+                                   name="sysConfigAccruedHolidayFactor"
+                                   placeholder="Accrued Holiday Factor">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                This is the default Accrued Holiday factor applied to all Contractors 
+                                when calculating their salary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10">&nbsp;</div>
+        <div class="col-lg-2">
+            <button type="submit"
+                    class="btn btn-success btn-lg">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save System Config
+            </button>
+        </div>
+    </div>
+
+</form>

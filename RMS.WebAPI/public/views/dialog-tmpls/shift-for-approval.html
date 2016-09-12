@@ -1,0 +1,205 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h4>Shift for Approval Dialog - {{shiftTemplateName}} : {{locationName}} : {{shiftProfile.StartDateTime}} - {{shiftEndTime}}</h4>
+        <form role="form" data-ng-submit="saveForm()">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Staff Member:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.EmployeeName"
+                                   type="text"
+                                   class="form-control"
+                                   disabled="disabled" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>Shift Status:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.StatusStr"
+                                   type="text"
+                                   class="form-control"
+                                   disabled="disabled" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Shift Start:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.StartDateTime"
+                                   type="text"
+                                   class="form-control"
+                                   disabled="disabled" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>Shift End:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.EndDateTime"
+                                   type="text"
+                                   class="form-control"
+                                   disabled="disabled" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Actual Start:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.ActualStartDateTime"
+                                   type="text"
+                                   data-ng-class="shiftProfile.IsApproved ? 'form-control isApprovedInput' : 'form-control'"
+                                   disabled="disabled" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>Actual End:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.ActualEndDateTime"
+                                   type="text"
+                                   data-ng-class="shiftProfile.IsApproved ? 'form-control isApprovedInput' : 'form-control'"
+                                   disabled="disabled" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Is Approved?</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.IsApproved"
+                                   data-ng-disabled="formDisable"
+                                   type="checkbox"
+                                   class="form-control" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>Duration:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="shiftProfile.TimeWorked"
+                                   type="text"
+                                   class="form-control"
+                                   disabled="disabled" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="5"><hr /></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Start Time Adjustment:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="startTimeAdjustment"
+                                   data-ng-blur="updateDuration()"
+                                   data-ng-disabled="startTimeFieldDisabled || formDisable"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="HH:mm" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label>End Time Adjustment:</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="endTimeAdjustment"
+                                   data-ng-blur="updateDuration()"
+                                   data-ng-disabled="endTimeFieldDisabled || formDisable"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="HH:mm" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label>Unpaid Break Duration (HH:mm):</label>
+                        </td>
+                        <td>
+                            <input data-ng-model="unpaidBreakAdjustment"
+                                   data-ng-blur=""
+                                   data-ng-disabled="formDisable"
+                                   type="text" 
+                                   class="form-control" 
+                                   placeholder="HH:mm" />
+                        </td>
+                        <td colspan="3">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Reason:</label>
+                        </td>
+                        <td colspan="4">
+                            <select data-ng-model="selectedReason"
+                                    data-ng-disabled="formDisable"
+                                    data-ng-options="reason for reason in reasons"
+                                    class="form-control">
+                                <option value="" selected>--- Please select ---</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Notes:</label>
+                        </td>
+                        <td colspan="4">
+                            <textarea data-ng-model="notes"
+                                      data-ng-disabled="formDisable"
+                                      class="form-control"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button data-ng-disabled="formDisable"
+                                    type="submit"
+                                    class="btn btn-success btn-lg">
+                                <i class="fa fa-save"></i> Save Shift
+                            </button>
+                            <button data-ng-click="closeThisDialog()"
+                                    data-ng-disabled="formDisable"
+                                    type="button"
+                                    class="btn btn-danger">
+                                <i class="fa fa-times-circle"></i> Cancel
+                            </button>
+                        </td>
+                        <td colspan="3">
+                            <div data-ng-hide="hideWarning"
+                                 class="alert alert-dismissible alert-warning">
+                                <h4>Warning!</h4>
+                                <p>SAVING WITHOUT APPROVING WILL CAUSE SHIFT TO MISS PAYROLL</p>
+                            </div>
+                        </td>
+                        <td>
+                            <button data-ng-hide="hideWarning"
+                                    data-ng-click="continue()"
+                                    type="button"
+                                    class="btn btn-success btn-lg">
+                                <i class="fa fa-save"></i> Continue
+                            </button>
+                            <button data-ng-hide="hideWarning"
+                                    data-ng-click="cancel()"
+                                    type="button"
+                                    class="btn btn-danger">
+                                <i class="fa fa-times-circle"></i> Cancel
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

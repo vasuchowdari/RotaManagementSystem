@@ -1,0 +1,413 @@
+﻿div.horizontal-spacer { height: 2em; }
+
+div.jumbotron-spacer { height: 3.5em; }
+
+div.checkbox-list {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    height: 100px;
+    overflow-y: scroll;
+    width: 300px;
+}
+
+label.indented {
+    padding-left: 20px;
+}
+
+label {
+    display: block;
+}
+
+.form-control {
+  max-width: 350px;
+}
+
+table td.admin-user-contract-table-row {
+    text-align: center;
+}
+
+table th.table-rms {
+    width: 110px;
+}
+
+table td.rota-legend {
+    width: 150px;
+}
+
+div.container.popup {
+    max-width: 1000px;
+    width: 1000px;
+}
+
+div.container.popup#delete-leave {
+    max-width: 500px;
+    width: 500px;
+}
+
+div.calendar-legend-worked-shift {
+    background: #CCCCCC;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-day-shift {
+    background: #BCE7F5;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-night-shift {
+    background: #FBFFC9;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-leave {
+    background: #A1D490;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-sick {
+    background: #FF9C45;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+
+}
+
+div.calendar-legend-suspension {
+    background: #FF576D;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-other {
+    background: #C390D4;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-training {
+    background: #D4BB90;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-maternity {
+    background: #FFB8FA;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.calendar-legend-paternity {
+    background: #2E4AFF;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-night {
+    background: #FBFFC9;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-day {
+    background: #BCE7F5;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-approved {
+    background: #A1D490;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-unapproved {
+    background: #D4BB90;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-agency {
+    background: #FFFB00;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+}
+
+div.rota-legend-unassigned {
+    background: #F5BCBC;
+    height: 20px;
+    width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #000000;
+    /*padding-left: 30px;*/
+}
+
+div.rms-form-group {
+    width: 50%;
+}
+
+span.rota-legend-text {
+    font-size: 12pt;
+    margin-left: 25px;
+    position: absolute;
+}
+
+.well-rms {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+}
+
+.rota-date-well {
+    width: 332px;
+}
+
+span.panel-header-icon {
+    float: right;
+}
+
+.checkboxList {
+    border:1px solid #cccccc;
+    border-radius: 4px;
+    background-color:#ffffff; 
+    color:#000;
+    width:350px; 
+    height: 100px; 
+    overflow-y: scroll;
+    padding-left: 50px;
+}
+
+.isApprovedRow {
+    background-color: #A1D490;
+}
+
+input[type="text"].isApprovedInput {
+    background-color: #A1D490
+}
+
+select.time-dropdown {
+    background-color: #ffffff;
+    width: 125px;
+    max-width: 125px;
+    height: 40px;
+    max-height: 40px;
+    border-radius: 5px;
+}
+
+.badge {
+    background-color: #fff !important;
+}
+
+.rota-number {
+    color: #000;
+}
+
+.rms-show-hide {
+  padding: 10px;
+  background: white;
+}
+
+.rms-show-hide {
+  transition: all ease-in-out 1.0s;
+}
+
+.rms-show-hide.ng-hide {
+  opacity: 0;
+}
+
+span.user-dash-header-panel-expander {
+    float: right;
+}
+
+.user-dash-data {
+    font-size: 200%;
+    text-align: center;
+}
+
+.user-dash-data.hoursScheduled {
+    color: green;
+    font-size: 300%;
+}
+
+.user-dash-data.hoursWorked {
+    color: orange;
+    font-size: 300%;
+}
+
+.user-dash-data.hoursRemaining {
+    color: red;
+    font-size: 300%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+
+/* UI Bootstrap Carousel */
+.carousel-indicators li {
+    border: 1px solid #000000;
+}
+
+.carousel-indicators .active {
+    background: #000000;
+}
+
+
+/* Admin, User Site Access Checkbox styling */
+.control-group {
+	display: inline-block;
+	width: 200px;
+	height: 210px;
+	margin: 10px;
+	padding: 30px;
+	text-align: left;
+	vertical-align: top;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.control {
+	font-size: 14px;
+	position: relative;
+	display: block;
+	margin-bottom: 15px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+/* Hover and focus states */
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+	background: #2aa1c0;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #0e647d;
+}
+
+/* Disabled state */
+.control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+	top: 4px;
+	left: 8px;
+	width: 3px;
+	height: 8px;
+	transform: rotate(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+}
+
+/* Disabled tick colour */
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #7b7b7b;
+}
+
+/* Radio button inner circle */
+.control--radio .control__indicator:after {
+	top: 7px;
+	left: 7px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+/* Disabled circle colour */
+.control--radio input:disabled ~ .control__indicator:after {
+	background: #7b7b7b;
+}

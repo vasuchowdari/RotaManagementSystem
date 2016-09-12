@@ -1,0 +1,215 @@
+﻿<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Time Correction Form
+                <span class="panel-header-icon">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Submitted Time Correction Data
+                            <span class="panel-header-icon">
+                                <i class="fa fa-file-text" aria-hidden="true"></i>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="staff-name">Staff Name:</label>
+                                <input data-ng-model="formModel.staffName"
+                                       type="text"
+                                       id="staff-name"
+                                       class="form-control"
+                                       placeholder="Staff Name"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="location">Shift Location:</label>
+                                <input data-ng-model="formModel.shiftLocation"
+                                       type="text"
+                                       id="location"
+                                       class="form-control"
+                                       placeholder="Shift Location"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">&nbsp;</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="location">Shift Start Date:</label>
+                                <input data-ng-model="shiftDate"
+                                       type="text"
+                                       id="shift-date"
+                                       class="form-control"
+                                       placeholder="Shift Start Date"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="time-in">Shift Start:</label>
+                                <input data-ng-model="formModel.shiftStart"
+                                       type="text"
+                                       id="time-in"
+                                       class="form-control"
+                                       placeholder="Shift Start"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="time-out">Shift End:</label>
+                                <input data-ng-model="formModel.shiftEnd"
+                                       type="text"
+                                       id="time-out"
+                                       class="form-control"
+                                       placeholder="Shift End"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">
+                                <label for="time-in">Clock In:</label>
+                                <input data-ng-model="formModel.clockIn"
+                                       type="text"
+                                       id="time-in"
+                                       class="form-control"
+                                       placeholder="Clock In"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="time-out">Clock Out:</label>
+                                <input data-ng-model="formModel.clockOut"
+                                       type="text"
+                                       id="time-out"
+                                       class="form-control"
+                                       placeholder="Clock Out"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">
+                                <label for="time-in">Actual In:</label>
+                                <input data-ng-model="formModel.actualIn"
+                                       type="text"
+                                       id="time-in"
+                                       class="form-control"
+                                       placeholder="Actual In"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="time-out">Actual Out:</label>
+                                <input data-ng-model="formModel.actualOut"
+                                       type="text"
+                                       id="time-out"
+                                       class="form-control"
+                                       placeholder="Actual Out"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="missing-clock-in">Missed Clock In:</label>
+                                <input data-ng-model="formModel.missedClockIn"
+                                       id="missing-clock-in"
+                                       type="checkbox"
+                                       class="form-control"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="missing-clock-out">Missed Clock Out:</label>
+                                <input data-ng-model="formModel.missedClockOut"
+                                       id="missing-clock-out"
+                                       type="checkbox"
+                                       class="form-control"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="late-in">Late In:</label>
+                                <input data-ng-model="formModel.lateIn"
+                                       id="late-in"
+                                       type="checkbox"
+                                       class="form-control"
+                                       disabled="disabled" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="early-out">Early Out:</label>
+                                <input data-ng-model="formModel.earlyOut"
+                                       id="early-out"
+                                       type="checkbox"
+                                       class="form-control"
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="staff-notes">Staff Reason:</label>
+                                <textarea data-ng-model="formModel.notes"
+                                          id="staff-notes"
+                                          class="form-control"
+                                          disabled="disabled"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Manager Action
+                            <span class="panel-header-icon">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="col-md-4">
+                                <label>Reason:</label>
+                                <select data-ng-model="tafUpdateModel.reason"
+                                        data-ng-disabled="formDisable"
+                                        data-ng-options="reason as reason for reason in reasons"
+                                        id="manager-reason-dropdown"
+                                        class="form-control">
+                                    <option value="" selected>--- Please select ---</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="manager-notes">Notes:</label>
+                                <textarea data-ng-model="tafUpdateModel.notes"
+                                          data-ng-disabled="formDisable"
+                                          id="manager-notes"
+                                          class="form-control"></textarea>
+                            </div>
+
+                            <div class="col-md-12">&nbsp;</div>
+
+                            <div class="col-md-8">&nbsp;</div>
+                            <div class="col-md-4">
+                                <button data-ng-click="actionTimeAdjustment('approved')"
+                                        data-ng-disabled="formDisable"
+                                        type="button"
+                                        class="btn btn-success">
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Send to Back Office
+                                </button>
+                                <!--<button data-ng-click="actionTimeAdjustment('unapproved')"
+                                        data-ng-disabled="formDisable"
+                                        type="button"
+                                        class="btn btn-danger">
+                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i> Reject
+                                </button>-->
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        {{authentication.login}}
+    </div>    
+</div>
+
+<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <form role="form" data-ng-submit="updatePassword()">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="new-password">New Password: </label>
+                        </td>
+                        <td>
+                            <input data-ng-model="newPassword"
+                                   id="new-password"
+                                   type="password"
+                                   class="form-control"
+                                   placeholder="New Password"
+                                   required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="confirm-password">Confirm: </label>
+                        </td>
+                        <td>
+                            <input data-ng-model="confirmNewPassword"
+                                   id="confirm-password"
+                                   type="password"
+                                   class="form-control"
+                                   placeholder="Confirm New Password"
+                                   required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button data-ng-disabled="submitBtnDisabled"
+                                    type="submit"
+                                    class="btn btn-info">
+                                <i class="fa fa-save"></i> Save Profile
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+﻿<div class="container">
+    <h4>Rota Legend</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well well-rms">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="rota-legend-day">
+                                    <span class="rota-legend-text">
+                                        Morning/Day
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rota-legend-night">
+                                    <span class="rota-legend-text">
+                                        Night
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rota-legend-unassigned">
+                                    <span class="rota-legend-text">
+                                        Unassigned
+                                        <span class="badge rota-number">{{unassignedEventsInPeriod}}</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rota-legend-agency">
+                                    <span class="rota-legend-text">
+                                        Agency Worker
+                                        <span class="badge rota-number">{{agencyEventsInPeriod}}</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rota-legend-approved">
+                                    <span class="rota-legend-text">
+                                        Approved <br/>
+                                        (Historical)
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rota-legend-unapproved">
+                                    <span class="rota-legend-text">
+                                        Unapproved <br/>
+                                        (Historical)
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <daypilot-scheduler id="dp" daypilot-config="config" daypilot-events="events"></daypilot-scheduler>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <!--<button data-ng-click="scaleChange('days')"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-warning"
+                    type="button">
+                <i class="fa fa-line-chart"></i> Day View
+            </button>
+            <button data-ng-click="scaleChange('weeks')"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-warning"
+                    type="button">
+                <i class="fa fa-line-chart"></i> Week View
+            </button>
+            <button data-ng-click="scaleChange('months')"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-warning"
+                    type="button">
+                <i class="fa fa-line-chart"></i> Month View
+            </button>
+            <button data-ng-click="scaleChange('years')"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-warning"
+                    type="button">
+                <i class="fa fa-line-chart"></i> Year View
+            </button>-->
+        </div>
+        <div class="col-lg-2">&nbsp;</div>
+        <div class="col-lg-4">
+            <button data-ng-click="previousPeriod()"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-info"
+                    type="button">
+                <i class="fa fa-chevron-left"></i> Prev
+            </button>
+            <button data-ng-click="nextPeriod()"
+                    data-ng-disabled="disabled"
+                    class="btn-sm btn-info"
+                    type="button">
+                Next <i class="fa fa-chevron-right"></i>
+            </button>
+            <button data-ng-click="print()"
+                    data-ng-hide="hidePrintRotaBtn"
+                    class="btn-sm btn-info"
+                    type="button">
+                <i class="fa fa-print" aria-hidden="true"></i> Print Rota
+            </button>
+        </div>
+    </div>
+</div>

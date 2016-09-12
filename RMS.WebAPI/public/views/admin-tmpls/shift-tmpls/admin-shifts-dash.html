@@ -1,0 +1,91 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Shift Templates
+                    <span class="panel-header-icon">
+                        <i class="glyphicon glyphicon-duplicate"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h5>Create New</h5>
+                    <p>
+                        Shift Templates provide the set parameters of a type of shift. For example,
+                        RMN Day, start time and end time.
+                    </p>
+                    <button data-ng-click="openCreateNewShiftTemplateDialog()"
+                            type="button"
+                            class="btn btn-warning btn-block">
+                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> New Shift Template
+                    </button>
+                </div>
+                
+                <p>&nbsp;</p>
+
+                <div class="col-md-12">
+                    <h5>Edit Existing</h5>
+                    <p>Click the button below if you wish to edit an existing Shift Template.</p>
+                    <button ui-sref="admin.shifts.templates"
+                            type="button"
+                            class="btn btn-warning btn-block">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Shift Templates
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Shifts & Clocking
+                    <span class="panel-header-icon">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h5>Shift Data Dashboard</h5>
+                    <p>If you wish to investigate shifts and the associated data, click on the button below.</p>
+                    <button disabled="disabled"
+                            type="button"
+                            class="btn btn-primary btn-block">
+                        <i class="glyphicon glyphicon-dashboard" aria-hidden="true"></i> Launch Dashboard
+                    </button>
+                </div>            
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Reporting
+                    <span class="panel-header-icon">
+                        <i class="fa fa-file-text" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h5>Statistical Reports</h5>
+                    <p>
+                        Run reports against shift data to see stats on Roles, Locations etc.
+                        See trends and identify areas that may need attention.
+                    </p>
+                    <button disabled="disabled"
+                            type="button"
+                            class="btn btn-info btn-block">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i> Launch Reporting
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

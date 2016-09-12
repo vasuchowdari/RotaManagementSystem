@@ -1,0 +1,412 @@
+﻿<uib-accordion>
+    <form data-ng-submit="submitUserCreateForm()"
+          class="form-horizontal"
+          role="form" 
+          name="userCreateForm">
+        <div uib-accordion-group class="panel-success clickable" is-open="openUserDetails">
+            <uib-accordion-heading>RMS User Details</uib-accordion-heading>
+            <fieldset>
+                <div data-ng-class="hideLoginWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userLogin" class="col-lg-3 control-label">Login: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.Login"
+                               data-ng-change="removeLoginWarning()"
+                               name="userLogin"
+                               type="text"
+                               class="form-control"
+                               placeholder="Login" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideLoginWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideEmailWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userEmail" class="col-lg-3 control-label">Email Address: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.Email"
+                               data-ng-change="removeEmailWarning()"
+                               name="userEmail"
+                               type="email"
+                               class="form-control"
+                               placeholder="Email Address" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideEmailWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideFirstnameWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userFirstname" class="col-lg-3 control-label">First Name: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.Firstname"
+                               data-ng-change="removeFirstnameWarning()"
+                               name="userFirstname"
+                               type="text"
+                               class="form-control"
+                               placeholder="First Name" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideFirstnameWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideLastnameWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userLastname" class="col-lg-3 control-label">Last Name: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.Lastname"
+                               data-ng-change="removeLastnameWarning()"
+                               name="userLastname"
+                               type="text"
+                               class="form-control"
+                               placeholder="Last Name" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideLastnameWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideSysAccessWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userAccess" class="col-lg-3 control-label">System Access: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.userModel.SystemAccessRoleId"
+                                data-ng-options="systemAccessRole.Id as systemAccessRole.Name for systemAccessRole in systemAccessRoles"
+                                data-ng-change="removeSysAccessWarning()"
+                                name="userAccess"
+                                class="form-control">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideSysAccessWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideExtTimeSysIdWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userExtTimeSysId" class="col-lg-3 control-label">ZK Time System ID: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.ExternalTimeSystemId"
+                               data-ng-change="removeExtTimeSysIdWarning()"
+                               name="userExtTimeSysId"
+                               type="number"
+                               class="form-control"
+                               placeholder="ZK Time System ID" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideExtTimeSysIdWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hidePayrollRefWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="userPayrollRef" class="col-lg-3 control-label">Payroll Reference ID: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.userModel.PayrollReferenceNumber"
+                               data-ng-change="removePayrollRefWarning()"
+                               name="userPayrollRef"
+                               type="text"
+                               class="form-control"
+                               placeholder="Payroll Reference ID" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hidePayrollRefWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div uib-accordion-group class="panel-primary clickable" is-open="openEmployeeDetails">
+            <uib-accordion-heading>Employee Details</uib-accordion-heading>
+            <fieldset>
+                <div data-ng-class="hideCompanyWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeCompany" class="col-lg-3 control-label">Company: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.employeeModel.CompanyId"
+                                data-ng-options="company.Id as company.Name for company in companies"
+                                data-ng-change="removeCompanyWarning()"
+                                name="employeeCompany"
+                                class="form-control">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideCompanyWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideEmployeeTypeWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeType" class="col-lg-3 control-label">Employee Type: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.employeeModel.EmployeeTypeId"
+                                data-ng-options="employeeType.Id as employeeType.Name for employeeType in employeeTypes"
+                                data-ng-change="removeEmployeeTypeWarning()"
+                                name="employeeType"
+                                class="form-control">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideEmployeeTypeWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideBaseSiteWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeBaseSite" class="col-lg-3 control-label">Base Location: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.employeeModel.BaseSiteId"
+                                data-ng-options="site.Id as site.Name for site in sites"
+                                data-ng-change="toggleBaseSubLocationDropdown(); removeBaseSiteWarning()"
+                                name="employeeBaseSite"
+                                class="form-control">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideBaseSiteWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeBaseSubSite" class="col-lg-3 control-label">Base Sub-Location: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.employeeModel.BaseSubSiteId"
+                                data-ng-options="subsite.Id as subsite.Name for subsite in subsites"
+                                data-ng-disabled="baseSubLocationDropdownDisabled"
+                                name="employeeBaseSubSite"
+                                class="form-control">
+                            <option value="">--- Optional ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideAddressWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeAddress" class="col-lg-3 control-label">Address: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.employeeModel.Address"
+                               data-ng-change="removeAddressWarning()"
+                               name="employeeAddress"
+                               type="text"
+                               class="form-control"
+                               placeholder="Address" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideAddressWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideCityWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeCity" class="col-lg-3 control-label">City: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.employeeModel.City"
+                               data-ng-change="removeCityWarning()"
+                               name="employeeCity"
+                               type="text"
+                               class="form-control"
+                               placeholder="City / Town" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideCityWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hidePostcodeWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeePostcode" class="col-lg-3 control-label">Postcode: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.employeeModel.Postcode"
+                               data-ng-change="removePostcodeWarning()"
+                               name="employeePostcode"
+                               type="text"
+                               class="form-control"
+                               placeholder="Postcode" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hidePostcodeWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideTelephoneWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeTelephone" class="col-lg-3 control-label">Telephone: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.employeeModel.Telephone"
+                               data-ng-change="removeTelephoneWarning()"
+                               name="employeeTelephone"
+                               type="tel"
+                               class="form-control"
+                               placeholder="Telephone" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideTelephoneWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideMobileWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="employeeMobile" class="col-lg-3 control-label">Mobile: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.employeeModel.Mobile"
+                               data-ng-change="removeMobileWarning()"
+                               name="employeeMobile"
+                               type="tel"
+                               class="form-control"
+                               placeholder="Mobile" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideMobileWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div uib-accordion-group class="panel-warning clickable" is-open="openContractDetails">
+            <uib-accordion-heading>Contract Details</uib-accordion-heading>
+            <fieldset>
+                <div data-ng-class="hideRoleWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="contractResource" class="col-lg-3 control-label">Role: </label>
+                    <div class="col-lg-5">
+                        <select data-ng-model="mvm.contractModel.ResourceId"
+                                data-ng-options="resource.Id as resource.Name for resource in resources"
+                                data-ng-change="removeRoleWarning()"
+                                name="contractResource"
+                                class="form-control">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideRoleWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div data-ng-class="hideWeeklyHoursWarning ? 'form-group' : 'form-group has-warning'">
+                    <label for="contractWeeklyHours" class="col-lg-3 control-label">Weekly Hours: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.contractModel.WeeklyHours"
+                               data-ng-change="removeWeeklyHoursWarning()"
+                               name="contractWeeklyHours"
+                               type="text"
+                               class="form-control"
+                               placeholder="Weekly Hours" />
+                    </div>
+                    <div class="col-lg-2">
+                        <span data-ng-hide="hideWeeklyHoursWarning"
+                              class="label label-warning">Warning</span>
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractBaseRateOverride" class="col-lg-3 control-label">Base Rate Override: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.contractModel.BaseRateOverride"
+                               name="contractBaseRateOverride"
+                               type="text"
+                               class="form-control"
+                               placeholder="Base Rate Override" />
+                    </div>
+                    <div class="col-lg-4">&nbsp;</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractOvertimeOverride" class="col-lg-3 control-label">Overtime Modifier Override: </label>
+                    <div class="col-lg-5">
+                        <input data-ng-model="mvm.contractModel.OvertimeModifierOverride"
+                               name="contractOvertimeOverride"
+                               type="text"
+                               class="form-control"
+                               placeholder="Overtime Modifier Override" />
+                    </div>
+                    <div class="col-lg-4">&nbsp;</div>
+                </div>
+            </fieldset>
+        </div>
+        
+        <div uib-accordion-group class="panel-info clickable" is-open="openLocationAccess">
+            <uib-accordion-heading>Location Access</uib-accordion-heading>
+            <div class="row">
+                <div class="col-sm-2">&nbsp;</div>
+                <div class="col-sm-4">
+                    <label class="control control--checkbox" for="{{baldock.Name}}">
+                        {{baldock.Name}}
+                        <input data-ng-model="baldock.isChecked"
+                               data-ng-click="clearBaldockChildren()"
+                               type="checkbox"
+                               id="{{baldock.Name}}"
+                               name="{{baldock.Name}}" />
+                        <div class="control__indicator"></div>
+                    </label>
+
+                    <ul>
+                        <li data-ng-repeat="subsite in baldock.SubSiteModels">
+                            <label class="control control--checkbox" for="{{subsite.Name}}">
+                                {{subsite.Name}}
+                                <input data-ng-model="subsite.isChecked"
+                                       data-ng-click="selectBaldockParentSite()"
+                                       type="checkbox"
+                                       id="{{subsite.Name}}"
+                                       name="{{subsite.Name}}" />
+                                <div class="control__indicator"></div>
+                            </label>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul>
+                        <li data-ng-repeat="site in psycare">
+                            <label class="control control--checkbox" for="{{site.Name}}">
+                                {{site.Name}}
+                                <input data-ng-model="site.isChecked"
+                                       type="checkbox"
+                                       id="{{site.Name}}"
+                                       name="{{site.Name}}" />
+                                <div class="control__indicator"></div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-spacer">&nbsp;</div>
+
+        <div class="row">
+            <div class="col-md-10">&nbsp;</div>
+            <div class="col-md-2">
+                <button type="submit"
+                        class="btn btn-success btn-lg">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Save User
+                </button>
+            </div>
+        </div>
+    </form>
+</uib-accordion>

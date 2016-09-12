@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h3>What would you like to do?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="well well-lg">
+            <h4>I want to add shifts to a role already on the rota</h4>
+            <p>Simply close this popup and click on the role you wish to add more shifts to (see image below as an example).</p>
+            <img src="http://80.229.27.248:8093/RMSV2Dev/public/content/add_shifts_to_existing_role_on_rota.png" width="600" height="300" />    
+            
+            <div class="horizontal-spacer">&nbsp;</div>
+            
+            <button data-ng-click="closeThisDialog()"
+                    class="btn btn-danger">
+                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close this popup
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="well well-lg">
+            <h4>I want to add a new role to the rota</h4>
+            <p>Just click on the button below to add an entirely new role to the rota.</p>
+            <button data-ng-click="openNewCalResRqDialog()"
+                    class="btn btn-lg btn-success">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i> Add New Role to Rota
+            </button>    
+        </div>
+    </div>
+</div>

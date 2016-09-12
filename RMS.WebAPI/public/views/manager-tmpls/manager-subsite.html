@@ -1,0 +1,59 @@
+﻿<div class="row">
+    
+    <h4>{{subsite.Name}}</h4>
+    
+
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {{subsite.Name}} Rotas
+                    <span class="panel-header-icon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li data-ng-repeat="calendar in subsiteCalendars">
+                        <a ui-sref="manager.site.subsite.calendar({subsiteCalendarId: {{calendar.Id}} })">{{calendar.Name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <!--<div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Available Staff
+                    <span class="panel-header-icon">
+                        <i class="fa fa-users"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>-->
+    </div>
+
+    <div class="col-lg-4">
+        <!--<div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Unassigned Shifts
+                    <span class="panel-header-icon">
+                        <i class="fa fa-calendar-times-o"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<div ui-view></div>

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35A6AE03-9B06-4A3B-91C3-C93F91BF02F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RMS.Infrastructure</RootNamespace>
+    <AssemblyName>RMS.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EF\Repositories\GenericRepository.cs" />
+    <Compile Include="EF\UnitOfWork.cs" />
+    <Compile Include="Migrations\201604141346363_Initial.cs" />
+    <Compile Include="Migrations\201604141346363_Initial.Designer.cs">
+      <DependentUpon>201604141346363_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605100841309_Added_Reason_and_Notes_fields_to_ShiftProfile_Entity.cs" />
+    <Compile Include="Migrations\201605100841309_Added_Reason_and_Notes_fields_to_ShiftProfile_Entity.Designer.cs">
+      <DependentUpon>201605100841309_Added_Reason_and_Notes_fields_to_ShiftProfile_Entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606121843428_AddedTimeAdjustmentFormEntity.cs" />
+    <Compile Include="Migrations\201606121843428_AddedTimeAdjustmentFormEntity.Designer.cs">
+      <DependentUpon>201606121843428_AddedTimeAdjustmentFormEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606171515384_AddedShiftAndShiftProfileIdsToTimeAdjustmentEntity.cs" />
+    <Compile Include="Migrations\201606171515384_AddedShiftAndShiftProfileIdsToTimeAdjustmentEntity.Designer.cs">
+      <DependentUpon>201606171515384_AddedShiftAndShiftProfileIdsToTimeAdjustmentEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606201630065_AddedBoolFieldsToTimeFormsAndShiftProfiles.cs" />
+    <Compile Include="Migrations\201606201630065_AddedBoolFieldsToTimeFormsAndShiftProfiles.Designer.cs">
+      <DependentUpon>201606201630065_AddedBoolFieldsToTimeFormsAndShiftProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606231932308_AddedZktDateTimesToShiftProfiles.cs" />
+    <Compile Include="Migrations\201606231932308_AddedZktDateTimesToShiftProfiles.Designer.cs">
+      <DependentUpon>201606231932308_AddedZktDateTimesToShiftProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606241005499_AddedZktDateTimesToTAFEntity.cs" />
+    <Compile Include="Migrations\201606241005499_AddedZktDateTimesToTAFEntity.Designer.cs">
+      <DependentUpon>201606241005499_AddedZktDateTimesToTAFEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607150650016_LeaveProfile_Entity_Extended.cs" />
+    <Compile Include="Migrations\201607150650016_LeaveProfile_Entity_Extended.Designer.cs">
+      <DependentUpon>201607150650016_LeaveProfile_Entity_Extended.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607261311156_Added_UserDefinedSystemConfig_Entity.cs" />
+    <Compile Include="Migrations\201607261311156_Added_UserDefinedSystemConfig_Entity.Designer.cs">
+      <DependentUpon>201607261311156_Added_UserDefinedSystemConfig_Entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607281350330_Added_BaseSite_to_Employee_Entity.cs" />
+    <Compile Include="Migrations\201607281350330_Added_BaseSite_to_Employee_Entity.Designer.cs">
+      <DependentUpon>201607281350330_Added_BaseSite_to_Employee_Entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608011419072_Added_Start_End_Dates_to_Contract_and_Employee_Entities.cs" />
+    <Compile Include="Migrations\201608011419072_Added_Start_End_Dates_to_Contract_and_Employee_Entities.Designer.cs">
+      <DependentUpon>201608011419072_Added_Start_End_Dates_to_Contract_and_Employee_Entities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608020913132_Added_Payroll_Start_End_days_of_Month_to_SysConfig.cs" />
+    <Compile Include="Migrations\201608020913132_Added_Payroll_Start_End_days_of_Month_to_SysConfig.Designer.cs">
+      <DependentUpon>201608020913132_Added_Payroll_Start_End_days_of_Month_to_SysConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608251420376_LeaveRequest_AmountRequested_type_updated.cs" />
+    <Compile Include="Migrations\201608251420376_LeaveRequest_AmountRequested_type_updated.Designer.cs">
+      <DependentUpon>201608251420376_LeaveRequest_AmountRequested_type_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608271244559_Added_DateTime_Actuals_to_LeaveRequest.cs" />
+    <Compile Include="Migrations\201608271244559_Added_DateTime_Actuals_to_LeaveRequest.Designer.cs">
+      <DependentUpon>201608271244559_Added_DateTime_Actuals_to_LeaveRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608271354452_Added_Status_to_LeaveRequest.cs" />
+    <Compile Include="Migrations\201608271354452_Added_Status_to_LeaveRequest.Designer.cs">
+      <DependentUpon>201608271354452_Added_Status_to_LeaveRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608271713278_Changed_and_updated_Unprocessed_to_ZkTimeClockingRecord.cs" />
+    <Compile Include="Migrations\201608271713278_Changed_and_updated_Unprocessed_to_ZkTimeClockingRecord.Designer.cs">
+      <DependentUpon>201608271713278_Changed_and_updated_Unprocessed_to_ZkTimeClockingRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609061622148_Removed_ShiftPattern_Agency_and_AgencyWorker_Entities.cs" />
+    <Compile Include="Migrations\201609061622148_Removed_ShiftPattern_Agency_and_AgencyWorker_Entities.Designer.cs">
+      <DependentUpon>201609061622148_Removed_ShiftPattern_Agency_and_AgencyWorker_Entities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RmsContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RMS.Core\RMS.Core.csproj">
+      <Project>{e382fae4-7c60-4407-a25b-94407bc616b7}</Project>
+      <Name>RMS.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EF\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604141346363_Initial.resx">
+      <DependentUpon>201604141346363_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605100841309_Added_Reason_and_Notes_fields_to_ShiftProfile_Entity.resx">
+      <DependentUpon>201605100841309_Added_Reason_and_Notes_fields_to_ShiftProfile_Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606121843428_AddedTimeAdjustmentFormEntity.resx">
+      <DependentUpon>201606121843428_AddedTimeAdjustmentFormEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606171515384_AddedShiftAndShiftProfileIdsToTimeAdjustmentEntity.resx">
+      <DependentUpon>201606171515384_AddedShiftAndShiftProfileIdsToTimeAdjustmentEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201630065_AddedBoolFieldsToTimeFormsAndShiftProfiles.resx">
+      <DependentUpon>201606201630065_AddedBoolFieldsToTimeFormsAndShiftProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606231932308_AddedZktDateTimesToShiftProfiles.resx">
+      <DependentUpon>201606231932308_AddedZktDateTimesToShiftProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606241005499_AddedZktDateTimesToTAFEntity.resx">
+      <DependentUpon>201606241005499_AddedZktDateTimesToTAFEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607150650016_LeaveProfile_Entity_Extended.resx">
+      <DependentUpon>201607150650016_LeaveProfile_Entity_Extended.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607261311156_Added_UserDefinedSystemConfig_Entity.resx">
+      <DependentUpon>201607261311156_Added_UserDefinedSystemConfig_Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607281350330_Added_BaseSite_to_Employee_Entity.resx">
+      <DependentUpon>201607281350330_Added_BaseSite_to_Employee_Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608011419072_Added_Start_End_Dates_to_Contract_and_Employee_Entities.resx">
+      <DependentUpon>201608011419072_Added_Start_End_Dates_to_Contract_and_Employee_Entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608020913132_Added_Payroll_Start_End_days_of_Month_to_SysConfig.resx">
+      <DependentUpon>201608020913132_Added_Payroll_Start_End_days_of_Month_to_SysConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608251420376_LeaveRequest_AmountRequested_type_updated.resx">
+      <DependentUpon>201608251420376_LeaveRequest_AmountRequested_type_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608271244559_Added_DateTime_Actuals_to_LeaveRequest.resx">
+      <DependentUpon>201608271244559_Added_DateTime_Actuals_to_LeaveRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608271354452_Added_Status_to_LeaveRequest.resx">
+      <DependentUpon>201608271354452_Added_Status_to_LeaveRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608271713278_Changed_and_updated_Unprocessed_to_ZkTimeClockingRecord.resx">
+      <DependentUpon>201608271713278_Changed_and_updated_Unprocessed_to_ZkTimeClockingRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609061622148_Removed_ShiftPattern_Agency_and_AgencyWorker_Entities.resx">
+      <DependentUpon>201609061622148_Removed_ShiftPattern_Agency_and_AgencyWorker_Entities.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

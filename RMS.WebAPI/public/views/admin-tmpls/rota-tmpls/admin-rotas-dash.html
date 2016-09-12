@@ -1,0 +1,68 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Rota Search Criteria
+                    <span class="panel-header-icon">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form data-ng-submit="submitSearchCriteriaForm()"
+                      class="form-horizontal"
+                      role="form"
+                      name="rotaSearchParamsForm">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="rotaSite" class="col-lg-1 control-label">Location: </label>
+                            <div class="col-lg-5">
+                                <select data-ng-model="selectedSiteId"
+                                        data-ng-options="site.Id as site.Name for site in sites"
+                                        data-ng-change="refreshSubSites()"
+                                        class="form-control"
+                                        id="rotaSite"
+                                        name="rotaSite">
+                                    <option value="">--- Please Select ---</option>
+                                </select>
+                            </div>
+                            <label for="rotaSubSite" class="col-lg-1 control-label">Ward: </label>
+                            <div class="col-lg-5">
+                                <select data-ng-model="selectedSubSiteId"
+                                        data-ng-options="subsite.Id as subsite.Name for subsite in subsites"
+                                        data-ng-disabled="subsiteDropdownDisabled"
+                                        class="form-control"
+                                        id="rotaSubSite"
+                                        name="rotaSubSite">
+                                    <option value="">--- Optional ---</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-9">&nbsp;</div>
+                            <div class="col-lg-3">
+                                <button type="submit"
+                                        class="btn btn-success btn-lg">
+                                    <i class="fa fa-search" aria-hidden="true"></i> Search
+                                </button>
+                                <button data-ng-click="resetForm()"
+                                        type="button"
+                                        class="btn btn-default btn-sm">
+                                    <i class="fa fa-undo" aria-hidden="true"></i> Reset Form
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div ui-view></div>
+</div>

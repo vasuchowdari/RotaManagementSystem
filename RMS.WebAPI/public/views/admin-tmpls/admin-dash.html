@@ -1,0 +1,84 @@
+﻿<div class="horizontal-spacer">&nbsp;</div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Daily Activity
+                    <span class="panel-header-icon">
+                        <span class="badge">{{invalidShiftProfiles.length}}</span>
+                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <input data-ng-model="ispSearchStr"
+                       type="text"
+                       class="form-control"
+                       placeholder="Search Invalid Shifts" />
+
+                <scrollable-table watch="invalidShiftProfiles">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th>Shift Date</th>
+                                <th>Staff Member</th>
+                                <th>Shift Location</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-click="navToShiftAdjustment(shiftProfile)"
+                                data-ng-repeat="shiftProfile in invalidShiftProfiles | filter:ispSearchStr"
+                                row-id="{{shiftProfile.Id}}"
+                                class="clickable">
+                                <td>{{shiftProfile.shiftDate | date:'dd/MM/yyyy'}}</td>
+                                <td>{{shiftProfile.staffMember}}</td>
+                                <td>{{shiftProfile.shiftLocation}}</td>
+                                <td>{{shiftProfile.actualStartDateTime | date: 'HH:mm:ss'}}</td>
+                                <td>{{shiftProfile.actualEndDateTime | date: 'HH:mm:ss'}}</td>
+                                <td>{{shiftProfile.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Unmatched Data
+                    <span class="panel-header-icon">
+                        <span class="badge">{{timeAdjustmentForms.length}}</span>
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <!--<scrollable-table watch="timeAdjustmentForms">
+                    <table class="table table-hover table-rms">
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Shift Location</th>
+                                <th>Shift Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="form in timeAdjustmentForms" row-id="{{form.id}}">
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.StaffName}}</td>
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.ShiftLocation}}</td>
+                                <td data-ng-click="navToAdjustmentForm(form)">{{form.ShiftStartDateTime | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </scrollable-table>-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿<div>
+    <div>
+        <input data-ng-model="staffSearchStr"
+               type="text"
+               class="form-control"
+               placeholder="Search Staff" />
+    </div>
+
+    <div id="staffCheckboxList" class="checkboxList">
+        <div data-ng-repeat="mos in staff | filter:staffSearchStr">
+            <label>
+                <input data-ng-model="mos.isChecked"
+                       type="checkbox" />
+                <span>{{mos.displayName}}</span>
+            </label>
+        </div>
+    </div>    
+</div>

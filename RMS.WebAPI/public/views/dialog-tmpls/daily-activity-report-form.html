@@ -1,0 +1,157 @@
+﻿<div class="container popup">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4>
+                        Daily Activity Report
+                        <span class="panel-header-icon">
+                            <i class="fa fa-file-text" aria-hidden="true"></i>
+                        </span>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form role="form" data-ng-submit="runDailyActivityReport()">
+                    <div class="col-xs-1">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label for="payrollYear">Year:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select data-ng-model="selectedYear"
+                                data-ng-options="year as year for year in years"
+                                class="form-control"
+                                id="payrollYear"
+                                name="payrollYear">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+
+                    <div class="col-xs-12">&nbsp;</div>
+
+                    <div class="col-xs-1">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label for="payrollPeriod">Month:</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select data-ng-model="selectedPeriodId"
+                                data-ng-options="period.id as period.text for period in periods"
+                                class="form-control"
+                                id="payrollPeriod"
+                                name="payrollPeriod">
+                            <option value="">--- Please Select ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+
+                    <div class="col-xs-12">&nbsp;</div>
+                    
+                    <div class="col-xs-3">
+                        <label>Location: </label>
+                        <select data-ng-model="selectedLocation"
+                                data-ng-options="site.Id as site.Name for site in sites"
+                                data-ng-change="refreshSubSites()"
+                                data-ng-disabled="formDisable"
+                                id="site"
+                                class="form-control">
+                            <option value="">--- Optional ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <label>Sub Location: </label>
+                        <select data-ng-model="selectedSubLocation"
+                                data-ng-options="subsite.Id as subsite.Name for subsite in subsites"
+                                data-ng-disabled="formDisable"
+                                id="subsite"
+                                class="form-control">
+                            <option value="">--- Optional ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <label>Staff Member: </label>
+                        <select data-ng-model="selectedStaffMember"
+                                data-ng-options="mos.Id as mos.displayName for mos in staffMembers"
+                                data-ng-disabled="formDisable"
+                                id="staff-member"
+                                class="form-control">
+                            <option value="">--- Optional ---</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <label>Role: </label>
+                        <select data-ng-model="selectedResource"
+                                data-ng-options="resource.Id as resource.Name for resource in resources"
+                                data-ng-disabled="formDisable"
+                                id="site"
+                                class="form-control">
+                            <option value="">--- Optional ---</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12">&nbsp;</div>
+
+                    <div class="col-xs-1">&nbsp;</div>
+                    <div class="col-xs-2">
+                        <label for="overrideDefaults">Override Defaults?</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <input data-ng-model="overrideDefaults"
+                               data-ng-change="toggleOverrideCalendars()"
+                               type="checkbox"
+                               class="form-control"
+                               id="overrideDefaults"
+                               name="overrideDefaults" />
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+
+                    <div class="col-xs-12">&nbsp;</div>
+
+                    <div class="col-xs-1">&nbsp;</div>
+                    <!-- spacer when cals hidden -->
+                    <div data-ng-hide="!hideOverrideCalendars" class="col-xs-10">&nbsp;</div>
+                    <div data-ng-hide="hideOverrideCalendars"
+                         class="col-xs-5">
+                        <label>Payroll Start Date: </label>
+                        <uib-datepicker ng-model="sdt"
+                                        class="well well-sm"
+                                        datepicker-options="options"></uib-datepicker>
+                    </div>
+                    <div data-ng-hide="hideOverrideCalendars"
+                         class="col-xs-5">
+                        <label>Payroll End Date: </label>
+                        <uib-datepicker ng-model="edt"
+                                        class="well well-sm"
+                                        datepicker-options="options"></uib-datepicker>
+                    </div>
+                    <div class="col-xs-1">&nbsp;</div>
+                    
+                    <div class="horizontal-spacer">&nbsp;</div>
+
+                    <div class="col-xs-4">&nbsp;</div>
+                    <div class="col-xs-3">
+                        <a data-ng-hide="hideDownloadLink"
+                           class="btn btn-primary btn-lg"
+                           data-ng-click="toggleDownloadLink()"
+                           href="http://nouvitareports.s3.amazonaws.com/Daily_Activity_Report.xlsx">
+                            <i class="fa fa-download" aria-hidden="true"></i> Download Report
+                        </a>
+                    </div>
+                    <div class="col-xs-5">
+                        <button data-ng-disabled="formDisable"
+                                type="submit"
+                                class="btn btn-success btn-lg">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i> Generate Report Data
+                        </button>
+                        
+                        <button data-ng-click="closeThisDialog()"
+                                type="button"
+                                class="btn btn-danger">
+                            <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>
