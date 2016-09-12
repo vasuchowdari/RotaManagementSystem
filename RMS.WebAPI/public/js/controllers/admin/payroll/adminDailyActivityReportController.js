@@ -12,7 +12,6 @@ app.controller("adminDailyActivityReportCtrl", [
 
 
         // Declarations
-        // TODO: WIRE UP DB SYS CONFIG VALUES
         $scope.defaultEndDateOfMonth = 20;
         $scope.defaultStartDateOfMonth = 21;
         $scope.edt = new Date();

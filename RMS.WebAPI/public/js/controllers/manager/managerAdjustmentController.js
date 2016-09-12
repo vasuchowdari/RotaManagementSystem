@@ -33,7 +33,6 @@ app.controller("managerAdjustmentCtrl", [
             $scope.tafUpdateModel.zktStartDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
             $scope.tafUpdateModel.zktEndDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
 
-            // TODO LOOK AT HANDLING THE CALLBACK BETTER?
             managerAreaService.updateTimeAdjustmentFormAndShiftProfile($scope.tafUpdateModel)
                 .then(function(res) { })
                 .catch(function(error) { });

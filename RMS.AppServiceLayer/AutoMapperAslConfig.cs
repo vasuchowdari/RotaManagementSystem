@@ -105,7 +105,7 @@ namespace RMS.AppServiceLayer
 
             Mapper.CreateMap<BudgetPeriod, BudgetPeriodDto>();
 
-            Mapper.CreateMap<Calendar, CalendarDto>(); // TODO: MAP
+            Mapper.CreateMap<Calendar, CalendarDto>();
 
             Mapper.CreateMap<CalendarResourceRequirement, CalendarResourceRequirementDto>();
 

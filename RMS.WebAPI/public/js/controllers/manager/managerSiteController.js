@@ -24,7 +24,6 @@ app.controller("managerSiteCtrl", [
         // Functions
         $scope.getCalendarsForSite = function() {
             calendarService.getForSite($scope.site.Id).then(function(res) {
-                // TODO: Service
                 _.forEach(res.data, function (calendar) {
                     calendar.StartDate = moment(calendar.StartDate).format("DD/MM/YYYY");
                     calendar.EndDate = moment(calendar.EndDate).format("DD/MM/YYYY");

@@ -224,7 +224,6 @@ app.controller("rotaResRqCtrl", [
                 return;
             }
 
-            // TODO: CONSOLIDATE WITH OTHER RES RQ CTRL
             var checkedStaff = rotaDialogService.validateCheckedStaffAgainstQuantity($scope.filteredStaff, $scope.quantity);
             if (!rotaDialogService.validateCheckedStaff(checkedStaff)) {
                 return;

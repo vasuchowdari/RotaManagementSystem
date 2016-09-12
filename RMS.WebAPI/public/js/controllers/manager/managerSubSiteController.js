@@ -23,7 +23,6 @@ app.controller("managerSubSiteCtrl", [
         // Functions
         $scope.getCalendarsForSubSite = function() {
             calendarService.getForSubSite($scope.subsite.Id).then(function(res) {
-                // TODO: Service
                 _.forEach(res.data, function(calendar) {
                     calendar.StartDate = moment(calendar.StartDate).format("DD/MM/YYYY");
                     calendar.EndDate = moment(calendar.EndDate).format("DD/MM/YYYY");

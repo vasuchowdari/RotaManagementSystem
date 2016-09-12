@@ -105,7 +105,6 @@ namespace RMS.AppServiceLayer.Contracts.Services
             _unitOfWork.Save();
 
 
-            // TODO: Need to deal with the multiple IDs just inserted
             // Audit
             _auditLogAppService.Audit(
                 AppConstants.ActionTypeCreate,

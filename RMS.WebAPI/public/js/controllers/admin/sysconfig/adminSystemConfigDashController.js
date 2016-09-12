@@ -33,7 +33,6 @@ app.controller("adminSystemConfigDashCtrl", [
         $scope.getUserDefinedSystemConfigs = function() {
             adminAreaService.getUserDefinedSystemConfigs().then(function(res) {
                 $scope.systemConfigs = res;
-                // TODO: This is a hack FTM, in order to circumvent multiple companies but only one base code
                 $scope.defaultSystemConfig = _.head($scope.systemConfigs);
             }).catch(function(error) {
                 helperService.toasterError(null, error);

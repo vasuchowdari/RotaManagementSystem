@@ -8,18 +8,6 @@ namespace RMS.WebAPI
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
-        //################################################################
-        //# Too whoever takes over this project from me (JW) then a      #
-        //# quick word. There's plenty that I would have liked to have   #
-        //# done and tidyied up (namely retro-fitting tests I had to     #
-        //# abandon due to time pressure) but most importantly, you'll   #
-        //# see lot's of lacklustre bits of code etc. where toward       #
-        //# the end of my time here, when it became obvious they weren't #
-        //# going to pay me for 6 months of my life, I just stopped      #
-        //# caring. I hope you have better luck, and don't let them      #
-        //# shaft you too.                                               #
-        //################################################################
-
         private ZkTimeService _zkTimeService;
         private OvertimeHandler _overtimeHandler;
 

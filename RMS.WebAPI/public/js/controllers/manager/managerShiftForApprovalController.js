@@ -17,8 +17,6 @@ app.controller("managerShiftForApprovalCtrl", [
 
 
         // Declarations
-        // TODO: CHANGE THIS AS SAVING WILL CAUSE ISSUES WITH DATETIME FORMATS?
-        // TODO: CONVERT TO C# FRIENDLY USING MOMENT.JS
         $scope.shiftProfile = angular.copy(helperService.getLocalStorageObject("shiftForApprovalStore"));
 
         var siteStore = helperService.getLocalStorageObject("siteStore");
@@ -91,7 +89,6 @@ app.controller("managerShiftForApprovalCtrl", [
 
         $scope.updateShiftProfile = function () {
 
-            // TODO: SERVICE AWAY
             $scope.shiftProfile.StartDateTime = moment($scope.shiftProfile.StartDateTime, "DD/MM/YYYY HH:mm:ss");
             $scope.shiftProfile.StartDateTime = helperService.formatDateTimeStringForServer($scope.shiftProfile.StartDateTime);
 

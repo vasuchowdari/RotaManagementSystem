@@ -635,7 +635,6 @@ app.controller("adminUserDetailsCtrl", [
                 return;
             }
 
-            // TODO: BEEF UP THE DE-ACTIVATE OF USER / EMPLOYEE PROCESS
             if (!$scope.mvm.userModel.IsActive) {
                 $scope.mvm.employeeModel.IsActive = false;
                 $scope.mvm.employeeIsDirty = true;

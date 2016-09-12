@@ -147,7 +147,6 @@ app.factory("userAreaService", [
             return model;
         };
 
-        // TODO: LOOK AT TAF SERVICE MODEL INSTEAD OF THIS? CONSOLEDATE?
         var _newTimeAdjustmentModel = function() {
             var model = {
                 shiftId: null,

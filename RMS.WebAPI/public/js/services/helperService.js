@@ -23,7 +23,6 @@ app.factory("helperService", [
             scope.authentication = authService.authentication;
         };
 
-        // TODO: LOOK AT
         var _formatShiftActualForDurationCalculation = function(dateTimeStr, adjTimeStr) {
             var tempDate = moment(dateTimeStr, "DD/MM/YYYY HH:mm:ss");
             tempDate = moment(tempDate).format("DD/MM/YYYY");

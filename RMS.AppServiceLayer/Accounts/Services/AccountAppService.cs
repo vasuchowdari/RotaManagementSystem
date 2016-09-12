@@ -112,7 +112,6 @@ namespace RMS.AppServiceLayer.Accounts.Services
             return user.Id;
         }
 
-        // TODO: Move this to UserAppService?
         public void UpdateUserPassword(UserDto userDto, long userId)
         {
             userDto.Password = HashPassword(userDto.Password);

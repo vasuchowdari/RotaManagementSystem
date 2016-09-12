@@ -183,7 +183,6 @@ describe("Controller: Manager Area - Site Controller", function() {
         expect(blockUI.stop).not.toHaveBeenCalled();
     });
 
-    // TODO: LocalStorage bugs
     //it("should call localStorageService.get if managerAreaService.sitesStore.length equals zero.", function() {
     //    // Arrange
     //    var expected = "sitesStore";

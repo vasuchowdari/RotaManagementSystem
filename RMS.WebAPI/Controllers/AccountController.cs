@@ -158,7 +158,6 @@ namespace RMS.WebAPI.Controllers
         [Route("Register")]
         public IHttpActionResult Register(AdminAreaUserViewModel viewModel)
         {
-            // TODO: POSSIBLY REFACTOR. SEE HOW USER UPDATE ACTION TURNS OUT
             try
             {
                 //need to chop up the different parts of the view model to map to the correct

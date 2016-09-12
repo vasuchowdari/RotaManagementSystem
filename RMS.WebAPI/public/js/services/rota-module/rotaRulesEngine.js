@@ -269,7 +269,6 @@ app.factory("rotaRulesEngine", [
         };
 
 
-        // TODO: RENAME THIS
         rotaRulesEngineFactory.init = _init;
 
         rotaRulesEngineFactory.consecutiveDaysWorkedRuleForSavingShifts = _consecutiveDaysWorkedRuleForSavingShifts;

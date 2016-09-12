@@ -24,7 +24,6 @@ app.directive("rota", [
             scope.agencyEventsInPeriod = 0;
             scope.unassignedEventsInPeriod = 0;
 
-            // TODO: LOOK AT AND IMPROVE START / END DATES
             scope.startDate = helperService.getWeekStartDate();
             scope.endDate = moment(scope.startDate).add(1, "weeks").format("YYYY-MM-DD");
 

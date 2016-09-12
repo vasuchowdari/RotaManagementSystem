@@ -506,7 +506,6 @@ app.factory("rotaDialogService", [
         rotaDialogServiceFactory.setLargestBlock = _setLargestBlock;
         rotaDialogServiceFactory.setNewShiftModelResource = _setNewShiftModelResource;
         rotaDialogServiceFactory.setShiftTemplate = _setShiftTemplate;
-        //TODO: RENAME THIS
         rotaDialogServiceFactory.setShiftTemplate2 = _setShiftTemplate2;
         rotaDialogServiceFactory.throwTooManyStaffError = _throwTooManyStaffError;
         rotaDialogServiceFactory.validateCheckedStaffAgainstQuantity = _validateCheckedStaffAgainstQuantity;

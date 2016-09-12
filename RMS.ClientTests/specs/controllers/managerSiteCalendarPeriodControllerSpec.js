@@ -433,7 +433,6 @@ describe("Controller: Manager Area - Site Calendar Period Controller", function(
         expect(scope.getPeriods).toHaveBeenCalled();
     });
 
-    // TODO: Uses LS in code snippet. Look at how you solved this, John.
     it("should return an object from managerArea.getSitePeriodsStore when called.", function() {
         // Arrange
         var expected = [];
